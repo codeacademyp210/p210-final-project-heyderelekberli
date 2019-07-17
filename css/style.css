@@ -1,0 +1,74 @@
+/* 
+==============================
+SLIDER 
+==============================
+*/
+.slider{
+  position: relative;
+  width:100%;
+  height:350px;
+  display: flex !important;
+  flex-direction: row !important;
+}
+.slider-picture{
+  position: relative;
+  width:20%;
+  height: 350px;
+  border: 1px solid transparent
+}
+.slider-picture a img{
+  position: absolute;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+.slick-arrow{
+  background-color:black !important;
+  z-index:1;
+}
+.slick-prev{
+ transform: translate(35px,0px);
+}
+.slick-next{
+  transform: translate(-35px,0px);
+ }
+ /* 
+==============================
+SEARCH
+==============================
+*/
+.col-search{
+  width:100%;
+  height:200px;
+  background-image: url(../image/menu.png);
+  background-repeat: repeat;
+}
+.search-title{
+  width:100%;
+  height:80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.search-select{
+  width:100%;
+  height:120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.category-select{
+  width:150px;
+  height:40px;
+  border-radius:8px;
+  outline: none;
+}
+.year-select{
+  width:150px;
+  height:40px;
+  border-radius:8px;
+  outline: none;
+  margin: 0px 15px 0px 15px;
+
+}
