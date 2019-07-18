@@ -1,6 +1,6 @@
 body {
     font-family: "Lato", sans-serif;
-    background-image: url("../image/bg.png");
+    background-image: url("../image/bg.jpg");
     background-repeat: repeat;
     z-index: -5;
   }
@@ -69,7 +69,7 @@ body {
   }
   .row-navbar{
     border:2px solid transparent;
-    background-image: url(../image/menu.png);
+    background-image: url(../image/bgg.jpg);
   }
   .container{
     width:950px;
