@@ -97,7 +97,6 @@ MOVIES
   width:100%;
   height:330px;
   margin-top:15px;
-
 }
 .base-poster{
   width:100%;
@@ -132,10 +131,228 @@ MOVIES
   text-decoration: none;
   transition: background-color .3s;
 }
-
 .pagination a.active {
   background-color: dodgerblue;
   color: white;
 }
 
-.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:hover:not(.active){
+  background-color: #ddd;
+}
+.pagination{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 
+=============================
+CATEGORY
+=============================
+*/
+.category-part{
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.category-row{
+  width:100%;
+  height:45px;
+  border-bottom:1px dotted white;
+  line-height: 45px;
+  background-image: url(../image/menu.png);
+  font-size: 21px;
+  padding-left:15px;
+}
+.category-row a{
+  color:#07afed;
+}
+.category-row a:hover{
+  text-decoration: none;
+  color:#07b0edaf;
+}
+.category-title{
+  width:100%;
+  height:50px;
+  display: flex;
+  justify-content: center;
+  background-color: #9b1111;
+  color:white; 
+  border:1px solid white;
+}
+/* 
+=============================
+IMDB
+=============================
+*/
+.imdb-part{
+  background-color: #9b1111;
+}
+.imdb-part a{
+  color:white !important;
+}
+.top250-part{
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.top250-row{
+  width:100%;
+  height:100px;
+  border-bottom:1px dotted white;
+  line-height: 45px;
+  background-image: url(../image/menu.png);
+  font-size: 21px;
+  padding-left:15px;
+  display: flex;
+}
+.top250-image{
+  width:65px;
+  height:80px;
+  margin: auto;
+}
+.top250-image img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+.base-top250{
+  width:100%;
+  height:100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+  align-items: center;
+  color:white;
+}
+.base-top250 a{
+  color:white;
+}
+.base-top250 a:hover{
+  color:white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.base-top250 i{
+  color:goldenrod
+}
+.base-top250 i>span{
+  color:white !important;
+  margin-left:6px;
+}
+/* 
+=============================
+Actors
+=============================
+*/
+.row-actor{
+  background-image: url(../image/menu.png);
+  object-fit: cover;
+}
+.col-actor{
+  width:100%;
+  height:330px;
+}
+.actor-profile{
+  width:100%;
+  height:100%;
+  display: flex;
+}
+.actor-image{
+  width:20%;
+  height:100%;
+  margin-left:15px;
+}
+.actor-image img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+.actor-info{
+  width:80%;
+  height:100%;
+  display: flex;
+}
+.contain-info{
+  width:95%;
+  height:95%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  color:#07afed;
+  justify-content: space-around;
+}
+.contain-info span{
+  color:white !important;
+}
+.actor-wikipedia{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wiki-text{
+  width:95%;
+  height:90%;
+  color:white;
+}
+.col-search-actor{
+  height:300px;
+  background-image: url(../image/parallax.jpg);
+  background-attachment: fixed;
+}
+.search-actor{
+  width:100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top:15px;
+}
+.search-actor-form input{
+background-color: black;
+width:250px;
+height:40px;
+color:white;
+outline: none;
+border:1px solid white;
+margin-right:5px;
+}
+.search-actor-form button{
+width:90px;
+height:39px;
+background-color: white;
+border:transparent;
+}
+.search-actor-form button:focus{
+  outline: none;
+}
+.base-actor-poster{
+  position: relative;
+  overflow: hidden;
+}
+.shadow-actor{
+  width:100%;
+  height:50px;
+  position:absolute;
+  background-color: black;
+  top:100%;
+  transition: all 0.9s;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shadow-actor a{
+  color:white;
+}
+.shadow-actor a:hover{
+  color:white;
+  text-decoration: none;
+}
+.base-actor-poster:hover .shadow-actor{
+  transform: translate(0px, -50px);
+  opacity: 1;
+}
