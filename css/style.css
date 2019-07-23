@@ -503,7 +503,6 @@ video:focus{
 .comment-form{
   width:100%;
 }
-  
 .comment-input{
   width:100%;
   padding:6px 5px;
@@ -517,7 +516,6 @@ video:focus{
   border-radius:6px;
   border:1px solid transparent;
   display: block;
-
 }
 .comment-input:focus, .comment-textarea:focus{
   outline:none !important;
@@ -547,7 +545,6 @@ video:focus{
 }
 .main-comment{
   width:100%;
-
 }
 .comment-title{
   display: flex;
@@ -564,4 +561,84 @@ video:focus{
 }
 .comment-text{
   background-color: white;
+}
+/* 
+=============================
+SEANS
+=============================
+*/
+.cinema-part{
+  width:100%;
+  background-image:url(../image/bg4.jpg);
+}
+.sinema-select{
+  width:100%;
+  padding:10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(245, 245, 245, 0.267);
+}
+.sinema-name{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.sinema-name h4{
+  color:rgb(14, 16, 141) !important;
+ }
+.sinema-name p{
+ color:black !important;
+}
+.sinema-image{
+  width:100px;
+  height:100px;
+}
+.sinema-image img{
+  width:100%;
+  height:100%;
+}
+.col-seans{
+  background-image: url(../image/menu.jpg);
+}
+.seans-part{
+  width:100%;
+}
+.seans-image{
+  width:100%;
+}
+.seans-main-image{
+  width:500px;
+  height:350px;
+}
+.seans-main-image img{
+  width:100%;
+  height:100%;
+}
+.seans-info{
+  width:100%;
+}
+.contain-seans{
+  width:100%;
+}
+.contain-seans span{
+  color:black !important;
+}
+.contain-seans p{
+  color:rgb(221, 18, 113) !important;
+}
+.col-table{
+width:100%;
+}
+.table-success {
+  height:200px;
+}
+.table-success td{
+padding:15px 10px !important;
+line-height: 30px
+}
+@media only screen and (max-width: 768px){
+  .seans-main-image{
+    width:220px;
+    height:150px;
+  }
 }
