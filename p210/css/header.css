@@ -74,21 +74,22 @@ body {
   .container{
     width:950px;
   }
-  .col-nav>ul{
+  .header-part>ul{
     display:flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     list-style-type: none;
     width:500px;
+    padding:0px;
     height:60px;
     margin:auto 0;
   }
-  .col-nav ul a{
+  .header-part ul a{
     text-decoration:none;
     color:#07afed;
   }
-  .col-nav ul a:hover{
+  .header-part ul a:hover{
   color:#07b0edb9;
   }
   .search-form{

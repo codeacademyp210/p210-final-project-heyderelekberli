@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/media-query.css">
 </head>
 
 <body>
@@ -18,7 +19,7 @@
         <nav>
             <div class="container">
                 <div class="row row-navbar">
-                    <div class="col-1">
+                    <div class="col-lg-8">
                         <div class="header-part">
                             <div id="mySidebar" class="sidebar">
                                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -33,15 +34,15 @@
                             <div id="main">
                                 <button class="openbtn" onclick="openNav()">☰</button>
                             </div>
+                            <ul>
+                                <li><a class="item" href="./Index.html">Home</a></li>
+                                <li><a class="item" href="./Category.html">Categories</a></li>
+                                <li><a class="item" href="./top10.html">Top 10</a></li>
+                                <li><a class="item" href="./contact.html">Contact</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-11 col-nav">
-                        <ul>
-                            <li><a href="./Index.html">Home</a></li>
-                            <li><a href="./Category.html">Categories</a></li>
-                            <li><a href="./Top10.html">Top 10</a></li>
-                            <li><a href="./Contact.html">Contact</a></li>
-                        </ul>
+                    <div class="col-lg-4 col-nav">
                         <form class="search-form">
                             <input type="text" placeholder="Search Movies">
                             <button>Search</button>
