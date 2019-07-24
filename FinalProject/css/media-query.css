@@ -12,6 +12,16 @@
       display: flex;
       justify-content: center;
     }
+    .col-footer-left{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .col-footer-right{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   @media only screen and (max-width: 992px){
     .item{

@@ -124,28 +124,35 @@ body {
     justify-content: space-between;
     padding:0px;
   }
-  /* 
+/* 
 ========================
 FOOTER
 ======================== 
 */
-.col-footer{
+.col-footer-left{
   height:160px;
   background-color: #1a1a1a;
   display:flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
-.col-footer>div:nth-child(1){
+.col-footer-right{
+  height:160px;
+  background-color: #1a1a1a;
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.col-footer-left>div:nth-child(1){
   background-color: rgb(61, 61, 216);
 }
-.col-footer>div:nth-child(2){
+.col-footer-left>div:nth-child(2){
   background-color: rgb(48, 170, 201);
 }
-.col-footer>div:nth-child(3){
+.col-footer-right>div:nth-child(1){
   background-color: rgb(189, 33, 142);
 }
-.col-footer>div:nth-child(4){
+.col-footer-right>div:nth-child(2){
   background-color: rgb(13, 148, 58);
 }
 .footer-icon{
