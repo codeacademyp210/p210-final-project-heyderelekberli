@@ -16,11 +16,13 @@
       display:flex;
       justify-content: center;
       align-items: center;
+      height:100px;
     }
     .col-footer-right{
       display:flex;
       justify-content: center;
       align-items: center;
+      height:100px;
     }
   }
   @media only screen and (max-width: 992px){

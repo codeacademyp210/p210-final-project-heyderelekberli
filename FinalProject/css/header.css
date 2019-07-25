@@ -130,14 +130,14 @@ FOOTER
 ======================== 
 */
 .col-footer-left{
-  height:160px;
+  height:150px;
   background-color: #1a1a1a;
   display:flex;
   justify-content: flex-end;
   align-items: center;
 }
 .col-footer-right{
-  height:160px;
+  height:150px;
   background-color: #1a1a1a;
   display:flex;
   justify-content: flex-start;
