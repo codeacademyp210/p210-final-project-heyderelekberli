@@ -4,9 +4,10 @@
       height:150px;
     }
     .col-select-category{
-      display: flex;
-      justify-content: center;
-      margin-left:-35px;
+      display: flex !important;
+      justify-content:flex-start !important;
+      align-items: flex-end !important;
+      margin-left:16px;
     }
     .col-select-year{
       display: flex;

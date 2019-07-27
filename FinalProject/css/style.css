@@ -97,19 +97,19 @@ MOVIES
   padding:0px;
 }
 .movie-poster{
-  width:100%;
-  height:330px;
+  width:100% ;
+  height:330px ;
   margin-top:15px;
 }
 .base-poster{
-  width:100%;
-  height:100%;
-  position: relative;
+  width:100% ;
+  height:100% ;
+  position: relative ;
 }
 .base-poster a img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
+  width:100% ;
+  height:100% ;
+  object-fit: cover ;
   z-index: 5;
 }
 .shadow-image{
@@ -665,4 +665,13 @@ FIXED BUTTON
 }
 .scroll-top:focus{
   outline: none;
+}
+.pagination li a{
+  background-color: rgb(76, 76, 173);
+  border:1px solid white;
+  border-radius: 20%;
+  text-decoration: none;
+}
+.row-pagination{
+  background:white;
 }
