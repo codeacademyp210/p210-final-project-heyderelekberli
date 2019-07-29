@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MoviesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MoviesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Genres" EntityType="MoviesModel.Genre" />
+    <EntitySet Name="MovieGenres" EntityType="MoviesModel.MovieGenre" />
+    <EntitySet Name="Movies" EntityType="MoviesModel.Movy" />
+    <AssociationSet Name="FK_MovieGenres_Genres" Association="MoviesModel.FK_MovieGenres_Genres">
+      <End Role="Genre" EntitySet="Genres" />
+      <End Role="MovieGenre" EntitySet="MovieGenres" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovieGenres_Movies" Association="MoviesModel.FK_MovieGenres_Movies">
+      <End Role="Movy" EntitySet="Movies" />
+      <End Role="MovieGenre" EntitySet="MovieGenres" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MovieGenres" Relationship="MoviesModel.FK_MovieGenres_Genres" FromRole="Genre" ToRole="MovieGenre" />
+  </EntityType>
+  <EntityType Name="MovieGenre">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MovieID" Type="Int32" />
+    <Property Name="GenreID" Type="Int32" />
+    <NavigationProperty Name="Genre" Relationship="MoviesModel.FK_MovieGenres_Genres" FromRole="MovieGenre" ToRole="Genre" />
+    <NavigationProperty Name="Movy" Relationship="MoviesModel.FK_MovieGenres_Movies" FromRole="MovieGenre" ToRole="Movy" />
+  </EntityType>
+  <EntityType Name="Movy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Production" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Duration" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Director" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ActorID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Imdb" Type="Double" />
+    <Property Name="Video" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Slider" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MovieGenres" Relationship="MoviesModel.FK_MovieGenres_Movies" FromRole="Movy" ToRole="MovieGenre" />
+  </EntityType>
+  <Association Name="FK_MovieGenres_Genres">
+    <End Type="MoviesModel.Genre" Role="Genre" Multiplicity="0..1" />
+    <End Type="MoviesModel.MovieGenre" Role="MovieGenre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieGenre">
+        <PropertyRef Name="GenreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovieGenres_Movies">
+    <End Type="MoviesModel.Movy" Role="Movy" Multiplicity="0..1" />
+    <End Type="MoviesModel.MovieGenre" Role="MovieGenre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieGenre">
+        <PropertyRef Name="MovieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

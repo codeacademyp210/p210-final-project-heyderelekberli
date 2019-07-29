@@ -1,0 +1,627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FCF2127A-EC1A-4F27-8478-5BC0227C44ED}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinalProject</RootNamespace>
+    <AssemblyName>FinalProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44381</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActorsController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IMDBController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\NewController.cs" />
+    <Compile Include="Controllers\SeansController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DetailsViewModel.cs" />
+    <Compile Include="Models\Genre.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MovieGenre.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Movy.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Public\Actors.html" />
+    <Content Include="Public\ActorsProfile.html" />
+    <Content Include="Public\Category.html" />
+    <Content Include="Public\Contact.html" />
+    <Content Include="Public\css\header.css" />
+    <Content Include="Public\css\media-query.css" />
+    <Content Include="Public\css\site.css" />
+    <Content Include="Public\image\actors\1555497806_main_2x.jpg" />
+    <Content Include="Public\image\actors\depp.jpg" />
+    <Content Include="Public\image\actors\Dwayne.jpg" />
+    <Content Include="Public\image\actors\hugh.jpg" />
+    <Content Include="Public\image\actors\s1200 %281%29.jpg" />
+    <Content Include="Public\image\actors\s1200.jpg" />
+    <Content Include="Public\image\actors\toc-dai-chia-ngoi.jpg" />
+    <Content Include="Public\image\actors\tom-hanks.jpg" />
+    <Content Include="Public\image\bg.jpg" />
+    <Content Include="Public\image\bg.png" />
+    <Content Include="Public\image\bg1.jpg" />
+    <Content Include="Public\image\bg3.jpg" />
+    <Content Include="Public\image\bg4.jpg" />
+    <Content Include="Public\image\bgg.jpg" />
+    <Content Include="Public\image\cinema\azerbaijancinema.jpg" />
+    <Content Include="Public\image\cinema\azerbaijancinema2.jpg" />
+    <Content Include="Public\image\content\point-blank-2019.jpg" />
+    <Content Include="Public\image\content\the-immortal-wars-resurgence-2019.jpg" />
+    <Content Include="Public\image\IMDB\12-years-a-slave.jpg" />
+    <Content Include="Public\image\IMDB\12angry_man.jpg" />
+    <Content Include="Public\image\IMDB\2001-A-Space-Odyssey-Movie-Poster.png" />
+    <Content Include="Public\image\IMDB\3-once-upon-a-time-in-the-west-brown-border-style-italian-2-foglio-1968-01-851x1200.jpg" />
+    <Content Include="Public\image\IMDB\8-2-1.jpg" />
+    <Content Include="Public\image\IMDB\alien.jpg" />
+    <Content Include="Public\image\IMDB\Aliens_poster.jpg" />
+    <Content Include="Public\image\IMDB\AllAboutEve.jpg" />
+    <Content Include="Public\image\IMDB\amadeus.jpg" />
+    <Content Include="Public\image\IMDB\Amelie.jpg" />
+    <Content Include="Public\image\IMDB\AmericanBeauty.jpg" />
+    <Content Include="Public\image\IMDB\americanHistoryX.jpg" />
+    <Content Include="Public\image\IMDB\amores-perros.jpg" />
+    <Content Include="Public\image\IMDB\AndhaDhun-Poster-min.jpg" />
+    <Content Include="Public\image\IMDB\andrei-rublev.jpg" />
+    <Content Include="Public\image\IMDB\A_ClockworkOrange.jpg" />
+    <Content Include="Public\image\IMDB\a_separation_1499937717044-1500600743688.jpg" />
+    <Content Include="Public\image\IMDB\baba1.jpg" />
+    <Content Include="Public\image\IMDB\baba2.jpg" />
+    <Content Include="Public\image\IMDB\backToFutured.jpg" />
+    <Content Include="Public\image\IMDB\barry-lyndon.jpg" />
+    <Content Include="Public\image\IMDB\batman-begins-superhero-movies.jpg" />
+    <Content Include="Public\image\IMDB\batman-dark-knight-joker-i13945.jpg" />
+    <Content Include="Public\image\IMDB\beauty-and-the-beast-md-web.jpg" />
+    <Content Include="Public\image\IMDB\before-sunrise.jpg" />
+    <Content Include="Public\image\IMDB\before-sunset.jpg" />
+    <Content Include="Public\image\IMDB\ben-hur.jpg" />
+    <Content Include="Public\image\IMDB\BirSehirKatiliniAriyor.jpg" />
+    <Content Include="Public\image\IMDB\bladerunnerfinalcutlarge1.jpg" />
+    <Content Include="Public\image\IMDB\bohemianrhapsodyf.jpg" />
+    <Content Include="Public\image\IMDB\BraveHeart.jpg" />
+    <Content Include="Public\image\IMDB\casablanca.jpg" />
+    <Content Include="Public\image\IMDB\Casino.jpg" />
+    <Content Include="Public\image\IMDB\CastleIntheSky_250x375_R3.jpg" />
+    <Content Include="Public\image\IMDB\catch-me-if-you-can.jpg" />
+    <Content Include="Public\image\IMDB\ChidrenOfHeaven.jpg" />
+    <Content Include="Public\image\IMDB\Chinatown.jpg" />
+    <Content Include="Public\image\IMDB\citizen_kane_R50s_original_film_art_spo_2000x.jpg" />
+    <Content Include="Public\image\IMDB\cityLights.jpg" />
+    <Content Include="Public\image\IMDB\cityofgod.jpg" />
+    <Content Include="Public\image\IMDB\coco.jpg" />
+    <Content Include="Public\image\IMDB\come-and-see.jpg" />
+    <Content Include="Public\image\IMDB\cool-hand-luke.jpg" />
+    <Content Include="Public\image\IMDB\Dangal_Poster.jpg" />
+    <Content Include="Public\image\IMDB\DarkKnightRises.jpg" />
+    <Content Include="Public\image\IMDB\DasBoot.jpg" />
+    <Content Include="Public\image\IMDB\dead-poets-society.jpg" />
+    <Content Include="Public\image\IMDB\diabolique.jpg" />
+    <Content Include="Public\image\IMDB\Dial_M_For_Murder.jpg" />
+    <Content Include="Public\image\IMDB\DieHard1.jpg" />
+    <Content Include="Public\image\IMDB\DjangoUnchained.jpg" />
+    <Content Include="Public\image\IMDB\donnie-darko.jpg" />
+    <Content Include="Public\image\IMDB\DoubleIndemnity.jpg" />
+    <Content Include="Public\image\IMDB\Downfall.jpg" />
+    <Content Include="Public\image\IMDB\drishyam.jpg" />
+    <Content Include="Public\image\IMDB\el-secreto-de-sus-ojos-dutch-movie-poster.jpg" />
+    <Content Include="Public\image\IMDB\ElephantMan.jpg" />
+    <Content Include="Public\image\IMDB\EternalSunshineOfTheSpotlessMind.jpg" />
+    <Content Include="Public\image\IMDB\fargo.jpg" />
+    <Content Include="Public\image\IMDB\fight_clup.jpg" />
+    <Content Include="Public\image\IMDB\FINDING-NEMO-Finding-Nemo-Movie-Poster.jpg" />
+    <Content Include="Public\image\IMDB\ForAFewDollarsMore.jpg" />
+    <Content Include="Public\image\IMDB\forrest_gump.jpg" />
+    <Content Include="Public\image\IMDB\FullMetalJacket.jpg" />
+    <Content Include="Public\image\IMDB\gandhi.jpg" />
+    <Content Include="Public\image\IMDB\gangs-of-wesseypur.jpg" />
+    <Content Include="Public\image\IMDB\garip-doktor-dr-strangelove-1964.jpg" />
+    <Content Include="Public\image\IMDB\gladiator.jpg" />
+    <Content Include="Public\image\IMDB\Gone-Girl_Movie-Poster_Affiche-film.jpg" />
+    <Content Include="Public\image\IMDB\gone-with-the-wind.jpg" />
+    <Content Include="Public\image\IMDB\goodbadugly.jpg" />
+    <Content Include="Public\image\IMDB\goodfellas.jpg" />
+    <Content Include="Public\image\IMDB\GoodWillHounting.jpg" />
+    <Content Include="Public\image\IMDB\gran-torino.jpg" />
+    <Content Include="Public\image\IMDB\grapes-of-wrath.jpg" />
+    <Content Include="Public\image\IMDB\GraveOfTheFireflies.jpg" />
+    <Content Include="Public\image\IMDB\GreenBook.jpg" />
+    <Content Include="Public\image\IMDB\groundhog-day.jpg" />
+    <Content Include="Public\image\IMDB\guardian-of-the-galaxy.jpg" />
+    <Content Include="Public\image\IMDB\hackio.jpg" />
+    <Content Include="Public\image\IMDB\hacksaw-ridge.jpg" />
+    <Content Include="Public\image\IMDB\harry-potter-and-the-deathly-hallow2.jpg" />
+    <Content Include="Public\image\IMDB\Heat.jpg" />
+    <Content Include="Public\image\IMDB\hotel_rwanda_movie_poster_by_flowerstar3_d4wleqc-pre.jpg" />
+    <Content Include="Public\image\IMDB\how-to-train-your-drogon.jpg" />
+    <Content Include="Public\image\IMDB\HowlsMovingCastle.jpg" />
+    <Content Include="Public\image\IMDB\Ikiru.jpg" />
+    <Content Include="Public\image\IMDB\in-the-name-of-the-father.jpg" />
+    <Content Include="Public\image\IMDB\Incendies.jpg" />
+    <Content Include="Public\image\IMDB\inception.jpg" />
+    <Content Include="Public\image\IMDB\IndianaJonesandthrLastCrusade.jpg" />
+    <Content Include="Public\image\IMDB\InfinityWar.jpg" />
+    <Content Include="Public\image\IMDB\InglouriousBasterds.jpg" />
+    <Content Include="Public\image\IMDB\InsideOut.jpg" />
+    <Content Include="Public\image\IMDB\interstellar.jpg" />
+    <Content Include="Public\image\IMDB\InTheMoodForLove.jpg" />
+    <Content Include="Public\image\IMDB\into-the-wild.jpg" />
+    <Content Include="Public\image\IMDB\intoSpiderVerse.jpg" />
+    <Content Include="Public\image\IMDB\it-happened-one-night.jpg" />
+    <Content Include="Public\image\IMDB\it-s-a-wonderful-life-aka-que-bello-es-vivir-spanish-poster-art-1946_u-l-q12or3v0.jpg" />
+    <Content Include="Public\image\IMDB\jagten.jpg" />
+    <Content Include="Public\image\IMDB\Joker.gif" />
+    <Content Include="Public\image\IMDB\jurassic-park-movie-poster-1992-1010754092.jpg" />
+    <Content Include="Public\image\IMDB\kill-bill-vol1.jpg" />
+    <Content Include="Public\image\IMDB\KiminonaWa.jpg" />
+    <Content Include="Public\image\IMDB\la-confidential-movie-poster-1997-1010247981.jpg" />
+    <Content Include="Public\image\IMDB\la-haine.jpg" />
+    <Content Include="Public\image\IMDB\LadriDiBiciclette.jpg" />
+    <Content Include="Public\image\IMDB\large.jpg" />
+    <Content Include="Public\image\IMDB\laVitaeBella.jpg" />
+    <Content Include="Public\image\IMDB\LawrenceOfArabia.jpg" />
+    <Content Include="Public\image\IMDB\Leben_der_anderen.jpg" />
+    <Content Include="Public\image\IMDB\leon.jpg" />
+    <Content Include="Public\image\IMDB\life-of-brian.jpg" />
+    <Content Include="Public\image\IMDB\LockStockAndTwoSmokingBarrel.jpg" />
+    <Content Include="Public\image\IMDB\logan.jpg" />
+    <Content Include="Public\image\IMDB\lord-of-the-rings-fellowship-of-the-ring-maxi-poster-1.143.jpg" />
+    <Content Include="Public\image\IMDB\lord_of_the_rings_the_two_towers_2002__intl_original_film_art_2000x.jpg" />
+    <Content Include="Public\image\IMDB\lotr_returnoftheking.jpg" />
+    <Content Include="Public\image\IMDB\mad_max_2.jpg" />
+    <Content Include="Public\image\IMDB\mandariinid-estonian-movie-poster.jpg" />
+    <Content Include="Public\image\IMDB\mary-and-max.jpg" />
+    <Content Include="Public\image\IMDB\matrix.jpg" />
+    <Content Include="Public\image\IMDB\memento.jpg" />
+    <Content Include="Public\image\IMDB\memories-of-murder-movie-poster-2003-1020236386.jpg" />
+    <Content Include="Public\image\IMDB\metropolis.jpg" />
+    <Content Include="Public\image\IMDB\million-dollar-baby.jpg" />
+    <Content Include="Public\image\IMDB\modernTimes.jpg" />
+    <Content Include="Public\image\IMDB\Monsters Inc %282001%29 2.jpg" />
+    <Content Include="Public\image\IMDB\MontyPythonAndTheHoly.jpg" />
+    <Content Include="Public\image\IMDB\mr-smith-goes-to-washimgton.jpg" />
+    <Content Include="Public\image\IMDB\MySonAndMyFather.jpg" />
+    <Content Include="Public\image\IMDB\My_Neighbor_Totoro_-_Tonari_no_Totoro_%28Movie_Poster%29.jpg" />
+    <Content Include="Public\image\IMDB\nausicaa-of-the-valley-of-the-wind.jpg" />
+    <Content Include="Public\image\IMDB\NeautifulMind.jpg" />
+    <Content Include="Public\image\IMDB\network-movie-poster-1976-1020465535.jpg" />
+    <Content Include="Public\image\IMDB\newhope.jpg" />
+    <Content Include="Public\image\IMDB\no-country-for-old-men.jpg" />
+    <Content Include="Public\image\IMDB\NorthByNorthwest1966rUS27x41in2850f-404x608.jpg" />
+    <Content Include="Public\image\IMDB\nuovo-cinema-paradiso-british-movie-poster.jpg" />
+    <Content Include="Public\image\IMDB\OldBoy.jpg" />
+    <Content Include="Public\image\IMDB\OnceUponTimeAmerica.jpg" />
+    <Content Include="Public\image\IMDB\One-Flew-Over-the-Cuckoos-Nest-Poster.jpg" />
+    <Content Include="Public\image\IMDB\OnTheWaterfront.jpg" />
+    <Content Include="Public\image\IMDB\PansLabyrint.jpg" />
+    <Content Include="Public\image\IMDB\paper-moon.jpg" />
+    <Content Include="Public\image\IMDB\paris-texas-md-web.jpg" />
+    <Content Include="Public\image\IMDB\PathsOfGlory.jpg" />
+    <Content Include="Public\image\IMDB\peekay.jpg" />
+    <Content Include="Public\image\IMDB\persona.jpg" />
+    <Content Include="Public\image\IMDB\pfilm1244-the-bridge-on-the-river-kwai-film-movie-posters-cinema-kanvas-tablo-canvas-1000x1000.jpg" />
+    <Content Include="Public\image\IMDB\pianist.jpg" />
+    <Content Include="Public\image\IMDB\pirates-of-the-caribean-the-curse-of-the-black-pearl.jpg" />
+    <Content Include="Public\image\IMDB\platoon-helmet-official-movie-poster-print_a-G-12925483-0.jpg" />
+    <Content Include="Public\image\IMDB\Princess_Mononoke_1999_Movie_Poster_6_hwkyk_movieposters101%28com%29.jpg" />
+    <Content Include="Public\image\IMDB\prisoners.jpg" />
+    <Content Include="Public\image\IMDB\pulp_fiction.jpg" />
+    <Content Include="Public\image\IMDB\RagingBull.jpg" />
+    <Content Include="Public\image\IMDB\raiders_of_the_lost_ark_1981_french_original_film_art_2000x.jpg" />
+    <Content Include="Public\image\IMDB\Ran.jpg" />
+    <Content Include="Public\image\IMDB\rang-me-basanti.jpg" />
+    <Content Include="Public\image\IMDB\Rashomon.jpg" />
+    <Content Include="Public\image\IMDB\RearWindow.jpg" />
+    <Content Include="Public\image\IMDB\rebeccca.jpg" />
+    <Content Include="Public\image\IMDB\RequiemDorADream.jpg" />
+    <Content Include="Public\image\IMDB\reservoir-dogs-movie-poster.jpg" />
+    <Content Include="Public\image\IMDB\Rocky_poster.jpg" />
+    <Content Include="Public\image\IMDB\Room.jpg" />
+    <Content Include="Public\image\IMDB\rush.jpg" />
+    <Content Include="Public\image\IMDB\Scarface.jpg" />
+    <Content Include="Public\image\IMDB\schindler_list.jpg" />
+    <Content Include="Public\image\IMDB\seven.jpg" />
+    <Content Include="Public\image\IMDB\Seven_Samurai_movie_poster.jpg" />
+    <Content Include="Public\image\IMDB\shawshank.png" />
+    <Content Include="Public\image\IMDB\Sherlock_jr_poster.jpg" />
+    <Content Include="Public\image\IMDB\shutter-islands.jpg" />
+    <Content Include="Public\image\IMDB\SinginInTheRain.jpg" />
+    <Content Include="Public\image\IMDB\snatch9.jpg" />
+    <Content Include="Public\image\IMDB\SomeLikeHot.jpg" />
+    <Content Include="Public\image\IMDB\spiritedAway.jpg" />
+    <Content Include="Public\image\IMDB\stalker-finnish-movie-poster.jpg" />
+    <Content Include="Public\image\IMDB\stand-by-me.png" />
+    <Content Include="Public\image\IMDB\StarWarsReturnOfTheJedi.jpg" />
+    <Content Include="Public\image\IMDB\sunrise.jpg" />
+    <Content Include="Public\image\IMDB\SunsetBlvd.jpg" />
+    <Content Include="Public\image\IMDB\TaareZameenPar.jpg" />
+    <Content Include="Public\image\IMDB\tangerines.jpg" />
+    <Content Include="Public\image\IMDB\taxi-driver-re-release-poster.jpg" />
+    <Content Include="Public\image\IMDB\terminator-1984.jpg" />
+    <Content Include="Public\image\IMDB\terminator_judgmentDay.jpg" />
+    <Content Include="Public\image\IMDB\the-400-blows.jpg" />
+    <Content Include="Public\image\IMDB\the-apartment-minimal-movie-poster-chungkong-art.jpg" />
+    <Content Include="Public\image\IMDB\the-bandit.jpg" />
+    <Content Include="Public\image\IMDB\the-best-years-of-our-lives.jpg" />
+    <Content Include="Public\image\IMDB\the-big-lebowski.jpg" />
+    <Content Include="Public\image\IMDB\the-deer-hunter.jpg" />
+    <Content Include="Public\image\IMDB\the-General.jpg" />
+    <Content Include="Public\image\IMDB\the-grand-budapest-hotel.jpg" />
+    <Content Include="Public\image\IMDB\the-handmaiden.jpg" />
+    <Content Include="Public\image\IMDB\the-help.jpg" />
+    <Content Include="Public\image\IMDB\the-intouchables-poster.jpg" />
+    <Content Include="Public\image\IMDB\the-kid-movie-charlie-chaplin-jackie-coogan-poster-print_a-G-12701769-13198931.jpg" />
+    <Content Include="Public\image\IMDB\the-maltese-falcon.jpg" />
+    <Content Include="Public\image\IMDB\The-Prestige-Movie-Poster-Are-You-Watching-Closely.jpg" />
+    <Content Include="Public\image\IMDB\the-princess-bride.png" />
+    <Content Include="Public\image\IMDB\the-sixth-sense.jpg" />
+    <Content Include="Public\image\IMDB\the-thing.jpg" />
+    <Content Include="Public\image\IMDB\the-wages-of-fear.jpg" />
+    <Content Include="Public\image\IMDB\TheDeparted.jpg" />
+    <Content Include="Public\image\IMDB\theEmpireStrikes.jpg" />
+    <Content Include="Public\image\IMDB\TheGoldenRush.jpg" />
+    <Content Include="Public\image\IMDB\TheGreatDictator.jpg" />
+    <Content Include="Public\image\IMDB\TheGreatEscape.jpg" />
+    <Content Include="Public\image\IMDB\theGreenMile.jpg" />
+    <Content Include="Public\image\IMDB\TheLionKing.jpg" />
+    <Content Include="Public\image\IMDB\There-will-be-blood.jpg" />
+    <Content Include="Public\image\IMDB\TheSeventhSeal.jpg" />
+    <Content Include="Public\image\IMDB\TheShinning.jpg" />
+    <Content Include="Public\image\IMDB\thesilenceofthelambs.jpg" />
+    <Content Include="Public\image\IMDB\TheSting.jpg" />
+    <Content Include="Public\image\IMDB\TheThirdMan.jpg" />
+    <Content Include="Public\image\IMDB\TheTreaureOfTheSierraMadre.jpg" />
+    <Content Include="Public\image\IMDB\The_Passion_of_Joan_of_Arc_%281928%29_English_Poster.png" />
+    <Content Include="Public\image\IMDB\ThreeBillboardEbbingOutsideMissouri.jpg" />
+    <Content Include="Public\image\IMDB\ThreeIdiots.jpg" />
+    <Content Include="Public\image\IMDB\tokyo_story.jpg" />
+    <Content Include="Public\image\IMDB\ToyStory3.jpg" />
+    <Content Include="Public\image\IMDB\Toy_Story_1995_Movie_Poster_5_mccrw_movieposters101%28com%29.jpg" />
+    <Content Include="Public\image\IMDB\To_Kill_a_Mockingbird_poster.jpg" />
+    <Content Include="Public\image\IMDB\trainspotting.jpg" />
+    <Content Include="Public\image\IMDB\truman-show.jpg" />
+    <Content Include="Public\image\IMDB\Unforgiven.jpg" />
+    <Content Include="Public\image\IMDB\Up.jpg" />
+    <Content Include="Public\image\IMDB\usualSuspects.jpg" />
+    <Content Include="Public\image\IMDB\v-for-vendetta-movie-poster.jpg" />
+    <Content Include="Public\image\IMDB\Vertigo1958us1sht27x41in7995LB-404x608.jpg" />
+    <Content Include="Public\image\IMDB\Wall_E.jpg" />
+    <Content Include="Public\image\IMDB\warrior.jpg" />
+    <Content Include="Public\image\IMDB\whiplash.jpg" />
+    <Content Include="Public\image\IMDB\wild-strawberries.jpg" />
+    <Content Include="Public\image\IMDB\wild-tales.jpg" />
+    <Content Include="Public\image\IMDB\witness-for-the-prosecution-movie-poster-md.jpg" />
+    <Content Include="Public\image\IMDB\WizardofOz.jpg" />
+    <Content Include="Public\image\IMDB\WolfOFWallStreet.jpeg" />
+    <Content Include="Public\image\IMDB\Yojimbo.jpg" />
+    <Content Include="Public\image\menu.jpg" />
+    <Content Include="Public\image\menu.png" />
+    <Content Include="Public\image\parallax.jpg" />
+    <Content Include="Public\image\slider\alita-savas-melegi-2019.jpg" />
+    <Content Include="Public\image\slider\avengers-endgame-2019.jpg" />
+    <Content Include="Public\image\slider\axl-miles-2018.jpg" />
+    <Content Include="Public\image\slider\fast-color-2018.jpg" />
+    <Content Include="Public\image\slider\hellboy-3-2019.jpg" />
+    <Content Include="Public\image\slider\kaptan-marvel-captain-marvel-2019.jpg" />
+    <Content Include="Public\image\slider\kelebek-papillon-2017.jpg" />
+    <Content Include="Public\image\slider\orumcek-adam-evden-uzakta-spider-man-far-from-home-2019.jpg" />
+    <Content Include="Public\image\slider\pokmon-dedektif-pikachu-pokmon-detective-pikachu-2019.jpg" />
+    <Content Include="Public\image\slider\shaft-2019.jpg" />
+    <Content Include="Public\image\slider\shazam-6-guc-shazam-2019.jpg" />
+    <Content Include="Public\IMDB.html" />
+    <Content Include="Public\Index.html" />
+    <Content Include="Public\js\pagination.js" />
+    <Content Include="Public\js\script.js" />
+    <Content Include="Public\MoreFrom7.html" />
+    <Content Include="Public\MoviesProfile.html" />
+    <Content Include="Public\New.html" />
+    <Content Include="Public\Seans.html" />
+    <Content Include="Public\SeansProfile.html" />
+    <Content Include="Public\SeansTable.html" />
+    <Content Include="Public\slick-1.8.1\slick\ajax-loader.gif" />
+    <Content Include="Public\slick-1.8.1\slick\fonts\slick.svg" />
+    <Content Include="Public\slick-1.8.1\slick\slick-theme.css" />
+    <Content Include="Public\slick-1.8.1\slick\slick.css" />
+    <Content Include="Public\slick-1.8.1\slick\slick.js" />
+    <Content Include="Public\slick-1.8.1\slick\slick.min.js" />
+    <Content Include="Public\Top10.html" />
+    <Content Include="Public\Top250.html" />
+    <Content Include="Public\video\ALITA BATTLE ANGEL Trailer 3 %282019%29%28360P%29.mp4" />
+    <Content Include="Public\video\AXL Trailer %282018%29%28360P%29.mp4" />
+    <Content Include="Public\video\FAST COLOR Official Trailer %282019%29 Gugu Mbatha-Raw%28360P%29.mp4" />
+    <Content Include="Public\video\Hellboy %282019 Movie%29 New Trailer _Red Band_ – Davi%28360P%29.mp4" />
+    <Content Include="Public\video\Marvel Studios_ Avengers_ Endgame - Official Trail%28360P%29.mp4" />
+    <Content Include="Public\video\Marvel Studios_ Captain Marvel - Official Trailer%28360P%29.mp4" />
+    <Content Include="Public\video\PAPILLON _ Official Trailer%28360P%29.mp4" />
+    <Content Include="Public\video\Point Blank _ Official Trailer _ Netflix%28720P_HD%29.mp4" />
+    <Content Include="Public\video\POKÉMON Detective Pikachu - Official Trailer 2%28360P%29.mp4" />
+    <Content Include="Public\video\SHAFT – Official Trailer [HD]%28360P%29.mp4" />
+    <Content Include="Public\video\SHAZAM_ Trailer %282019%29%28360P%29.mp4" />
+    <Content Include="Public\video\SPIDER-MAN_ FAR FROM HOME Trailer %282019%29%28360P%29.mp4" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Public\image\IMDB\apocalypse-now-vintage-movie-poster-original-german-a1-23x33-23.webp" />
+    <Content Include="Public\image\IMDB\butch-cassidy-and-the-sundance-kid.webp" />
+    <Content Include="Public\image\IMDB\Jaws-Movie-Poster-24x36-inches.webp" />
+    <Content Include="Public\image\IMDB\JudgmentAtNuremberg.webp" />
+    <Content Include="Public\image\IMDB\psycho.webp" />
+    <Content Include="Public\image\IMDB\savingPrivateRyan.webp" />
+    <Content Include="Public\image\IMDB\spotlight.webp" />
+    <Content Include="Public\image\IMDB\the-nights-of-cabiria.webp" />
+    <Content Include="Public\slick-1.8.1\slick\config.rb" />
+    <Content Include="Public\slick-1.8.1\slick\fonts\slick.eot" />
+    <Content Include="Public\slick-1.8.1\slick\fonts\slick.ttf" />
+    <Content Include="Public\slick-1.8.1\slick\fonts\slick.woff" />
+    <Content Include="Public\slick-1.8.1\slick\slick-theme.less" />
+    <Content Include="Public\slick-1.8.1\slick\slick-theme.scss" />
+    <Content Include="Public\slick-1.8.1\slick\slick.less" />
+    <Content Include="Public\slick-1.8.1\slick\slick.scss" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutTemplete.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\IMDB\Top250.cshtml" />
+    <Content Include="Views\IMDB\Index.cshtml" />
+    <Content Include="Views\IMDB\MoreFrom7.cshtml" />
+    <Content Include="Views\IMDB\Top10.cshtml" />
+    <Content Include="Views\Home\MoviesProfile.cshtml" />
+    <Content Include="Views\New\Index.cshtml" />
+    <Content Include="Views\Actors\Index.cshtml" />
+    <Content Include="Views\Actors\ActorsProfile.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Seans\Index.cshtml" />
+    <Content Include="Views\Seans\SeansProfile.cshtml" />
+    <Content Include="Views\Seans\SeansTable.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Main\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51116</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44381/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

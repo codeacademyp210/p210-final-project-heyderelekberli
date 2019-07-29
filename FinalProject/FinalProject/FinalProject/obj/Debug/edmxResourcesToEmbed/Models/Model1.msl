@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MoviesModelStoreContainer" CdmEntityContainer="MoviesEntities">
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="MoviesModel.Genre">
+        <MappingFragment StoreEntitySet="Genres">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MovieGenres">
+      <EntityTypeMapping TypeName="MoviesModel.MovieGenre">
+        <MappingFragment StoreEntitySet="MovieGenres">
+          <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+          <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movies">
+      <EntityTypeMapping TypeName="MoviesModel.Movy">
+        <MappingFragment StoreEntitySet="Movies">
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Slider" ColumnName="Slider" />
+          <ScalarProperty Name="Video" ColumnName="Video" />
+          <ScalarProperty Name="Imdb" ColumnName="Imdb" />
+          <ScalarProperty Name="ActorID" ColumnName="ActorID" />
+          <ScalarProperty Name="Director" ColumnName="Director" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Production" ColumnName="Production" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

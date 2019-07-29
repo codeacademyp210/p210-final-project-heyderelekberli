@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewBag.Title = "_LayoutTemplete";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Final Project</title>
+    <link rel="stylesheet" type="text/css" href="~/Public/slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="~/Public/slick-1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Public/css/header.css">
+    <link rel="stylesheet" href="~/Public/css/media-query.css">
+    <link rel="stylesheet" href="~/Public/css/site.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="row row-navbar">
+                    <div class="col-lg-8">
+                        <div class="header-part">
+                            <div id="mySidebar" class="sidebar">
+                                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                                <a href="@Url.Action("Index","Home")">Home</a>
+                                <a href="@Url.Action("Index","Category")">Categories</a>
+                                <a href="@Url.Action("Index","IMDB")">IMDB</a>
+                                <a href="@Url.Action("Index","New")">New</a>
+                                <a href="@Url.Action("Index","Actors")">Actors</a>
+                                <a href="@Url.Action("Index","Seans")">Seans</a>
+                                <a href="@Url.Action("Index","Contact")">Contact</a>
+                            </div>
+                            <div id="main">
+                                <button class="openbtn" onclick="openNav()">☰</button>
+                            </div>
+                            <ul>
+                                <li><a class="item" href="@Url.Action("Index","Home")">Home</a></li>
+                                <li><a class="item" href="@Url.Action("Index","Category")">Categories</a></li>
+                                <li><a class="item" href="@Url.Action("Top10","IMDB")">Top 10</a></li>
+                                <li><a class="item" href="@Url.Action("Index","Contact")">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-nav">
+                        <form class="search-form">
+                            <input type="text" placeholder="Search Movies">
+                            <button>Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <span class="simple-section">
+        </span>
+        <button class="scroll-top"><i class="fa fa-chevron-up"></i></button>
+    </header>
+    @RenderBody()
+    <footer>
+        <div class="container my-2">
+            <div class="row">
+                <div class="col-md-6 col-footer-left p-0">
+                    <div class="footer-icon">
+                        <a href="https://www.facebook.com/profile.php?id=100009035794762">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>Facebook
+                        </a>
+                    </div>
+                    <div class="footer-icon">
+                        <a href="https://twitter.com/Heyderelekberl1">
+                            <i class="fa fa-twitter"
+                               aria-hidden="true"></i>Twitter
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-footer-right p-0">
+                    <div class="footer-icon">
+                        <a href="https://www.instagram.com/heyder__13/">
+                            <i class="fa fa-instagram"
+                               aria-hidden="true"></i>Instagram
+                        </a>
+                    </div>
+                    <div class="footer-icon">
+                        <a href="https://www.linkedin.com/in/heydar-alekberli-5b2bb6177/">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>Linkedin
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.9.0/d3.min.js"></script>
+    <script type="text/javascript" src="~/Public/slick-1.8.1/slick/slick.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://use.fontawesome.com/fec2aa2e4c.js"></script>
+
+    <script>
+        $(".slider").slick({
+            infinite: true,
+            arrows: true,
+            autoplay: true,
+            slidesToShow: 5,
+            dots: true,
+            responsive: [{
+
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 5,
+                    infinite: true,
+                    dots: true
+                }
+
+            },
+            {
+                breakpoint: 950,
+                settings: {
+                    slidesToShow: 4,
+                    infinite: true
+                }
+
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3,
+                    infinite: true
+                }
+
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    dots: true
+                }
+
+            },
+            {
+                breakpoint: 300,
+                settings: {
+                    slidesToShow: 1,
+                    infinite: true
+                }
+            }]
+        });
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="~/Public/js/pagination.js"></script>
+    <script src="~/Public/js/script.js"></script>
+</body>
+
+</html>
+
