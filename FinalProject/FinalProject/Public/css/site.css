@@ -98,7 +98,7 @@ MOVIES
 }
 .movie-poster{
   width:100% ;
-  height:330px ;
+  height:330px;
   margin-top:15px;
 }
 .base-poster{
@@ -123,6 +123,9 @@ MOVIES
   justify-content: center;
   align-items: center;
   color:white;
+}
+.shadow-image p:nth-child(1){
+    text-align:center
 }
 .base-poster:hover .shadow-image{
   opacity: 1;
@@ -287,7 +290,6 @@ Actors
 .contain-info a{
   color:#07afed !important;
 }
-
 .movie-content{
   height:90% !important;
   justify-content: space-around !important;
@@ -494,6 +496,10 @@ VIDEO
 }
 video:focus{
   outline:none;
+}
+iframe {
+    width: 80%;
+    height: 500px;
 }
 .comment-part{
   width:100%;

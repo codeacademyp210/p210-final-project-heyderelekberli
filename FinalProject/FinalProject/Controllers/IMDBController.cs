@@ -12,15 +12,21 @@ namespace FinalProject.Controllers
         // GET: IMDB
         public ActionResult Index()
         {
-            return View();
+            HomeViewModel models = new HomeViewModel();
+            models.Movies = db.Movies.ToList();
+            return View(models);
         }
         public ActionResult Top250()
         {
-            return View();
+            HomeViewModel models = new HomeViewModel();
+            models.Movies = db.Movies.ToList();
+            return View(models);
         }
         public ActionResult MoreFrom7()
         {
-            return View();
+            HomeViewModel models = new HomeViewModel();
+            models.Movies = db.Movies.ToList();
+            return View(models);
         }
         public ActionResult Top10()
         {
@@ -28,5 +34,6 @@ namespace FinalProject.Controllers
             models.Movies = db.Movies.ToList();
             return View(models);
         }
+  
     }
 }

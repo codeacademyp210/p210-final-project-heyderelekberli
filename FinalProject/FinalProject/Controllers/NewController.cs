@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,12 +7,14 @@ using System.Web.Mvc;
 
 namespace FinalProject.Controllers
 {
-    public class NewController : Controller
+    public class NewController : MainController
     {
         // GET: New
         public ActionResult Index()
         {
-            return View();
+            HomeViewModel models = new HomeViewModel();
+            models.Movies = db.Movies.ToList();
+            return View(models);
         }
     }
 }

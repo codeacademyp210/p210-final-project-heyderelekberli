@@ -17,6 +17,7 @@ namespace FinalProject.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Movy()
         {
+            this.MovieActors = new HashSet<MovieActor>();
             this.MovieGenres = new HashSet<MovieGenre>();
         }
     
@@ -26,14 +27,17 @@ namespace FinalProject.Models
         public string Name { get; set; }
         public string Production { get; set; }
         public string Duration { get; set; }
+        public Nullable<double> Year { get; set; }
         public string Director { get; set; }
-        public string ActorID { get; set; }
         public Nullable<double> Imdb { get; set; }
         public string Video { get; set; }
-        public string Slider { get; set; }
+        public Nullable<bool> Slider { get; set; }
         public Nullable<bool> Status { get; set; }
         public string Info { get; set; }
+        public Nullable<bool> Top { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MovieActor> MovieActors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovieGenre> MovieGenres { get; set; }
     }

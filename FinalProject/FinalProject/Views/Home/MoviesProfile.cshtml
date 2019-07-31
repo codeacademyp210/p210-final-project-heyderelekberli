@@ -2,145 +2,156 @@
 @{
     ViewBag.Title = "MoviesProfile";
 }
-    <main>
-        <section>
-            <div class="container">
-                <div class="row row-actor">
-                    <div class="col-12 category-title">
-                        <h2>
-                            About Movie
-                        </h2>
+<main>
+    <section>
+        <div class="container">
+            <div class="row row-actor">
+                <div class="col-12 category-title">
+                    <h2>
+                        About Movie
+                    </h2>
+                </div>
+                <div class="col-md-3 actor-profile py-5">
+                    <div class="actor-image ml-4">
+                        <img src="~/Public/image/content/@Model.Image" alt="movie_@Model.Id">
                     </div>
-                    <div class="col-md-3 actor-profile py-5">
-                        <div class="actor-image ml-4">
-                            <img src="~/Public/image/slider/@Model.Image" alt="movie_@Model.Id">
-                        </div>
-                    </div>
+                </div>
 
-                    <div class="col-md-9 actor-info py-3">
-                        <div class="contain-info movie-content pt-3">
-                            <p><span>Name:</span> @Model.Name</p>
-                            <p><span>Production:</span> @Model.Production</p>
-                            <p><span>Duration:</span> @Model.Duration</p>
-                            <p>
-                                <span>Genre:</span>
-                                @foreach (var item in Model.Category)
+                <div class="col-md-9 actor-info py-3">
+                    <div class="contain-info movie-content pt-3">
+                        <p><span>Name:</span> @Model.Name</p>
+                        <p><span>Production:</span> @Model.Production</p>
+                        <p><span>Duration:</span> @Model.Duration</p>
+                        <p>
+                            <span>Genre:</span>
+                            @for (var item = 0; item < Model.Category.Count; item++)
+                            {
+                                if (item == Model.Category.Count - 1)
                                 {
-                                    <a href="@Url.Action("ActorsProfile","Actors")">  @item.Genre.Name, </a>
+                                    <a href="@Url.Action("ActorsProfile","Actors")">  @Model.Category[item].Genre.Name  </a>
+                                    break;
                                 }
-                            </p>
-                            <p><span>Director:</span> @Model.Director</p>
-                            <p>
-                                <span>Starring:</span>
-                                <a href="@Url.Action("ActorsProfile", "Actors")"> Anthony Mackie , </a>
-                                <a href="@Url.Action("ActorsProfile", "Actors")"> Marc McGiver , </a>
-                                <a href="@Url.Action("ActorsProfile", "Actors")"> Frank Grillo , </a>
-                                <a href="@Url.Action("ActorsProfile", "Actors")"> Marcia Gay Harden , </a>
-                                <a href="@Url.Action("ActorsProfile", "Actors")"> Teyonah Parris </a>
-                            </p>
-                            <p><span>IMDB:</span> @Model.Imdb / 10</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-wiki py-3">
-                        <div class="actor-wikipedia">
-                            <div class="wiki-text ">
-                                <p>@Model.Info</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="container my-2">
-                <div class="row ">
-                    <div class="col-12 category-title">
-                        <h2>
-                            Watch Movie
-                        </h2>
-                    </div>
-                    <div class="col-12 video-part p-0">
-                        <video width="80%" controls>
-                                <source src="~/Public/video/@Model.Video" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 category-title contact-banner">
-                        <h2>
-                            Comments
-                        </h2>
-                    </div>
-                    <div class="col-12 comment-part">
-                        <form class="comment-form">
-                            <div>
-                                <label for="">Your Name</label>
-                                <input type="text" class="comment-input" placeholder="Enter You Name">
-                            </div>
-                            <div>
-                                <label for="">Your Comment</label>
-                                <textarea type="text" class="comment-textarea"
-                                          placeholder="Enter Your Comment"></textarea>
-                            </div>
+                                <a href="@Url.Action("ActorsProfile","Actors")">  @Model.Category[item].Genre.Name , </a>
 
-                            <a href="#" class="comment-button">Send</a>
-                        </form>
-                        <div class="show-comment  my-2 py-4">
-                            <div class="main-comment my-3">
-                                <div class="comment-title p-2 ">
-                                    <span>Jhon Doe</span>
-                                    <span>22 iyul 2019</span>
-                                </div>
-                                <div class="comment-text py-4 px-2">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum aut id,
-                                        officiis laboriosam repellat ut ab veritatis eaque quam enim corporis quia
-                                    </p>
-                                </div>
+                            }
+                        </p>
+                        <p><span>Director:</span> @Model.Director</p>
+                        <p>
+                            <span>Starring:</span>
+                            @for (var star = 0; star < Model.Star.Count; star++)
+                            {
+                                if (star == Model.Star.Count - 1)
+                                {
+                                    <a href="@Url.Action("ActorsProfile", "Actors",new { Id = Model.Id})"> @Model.Star[star].Actor.Name </a>
+                                    break;
+                                }
+                                <a href="@Url.Action("ActorsProfile", "Actors",new { Id = Model.Id})"> @Model.Star[star].Actor.Name ,</a>
+
+                            }
+                        </p>
+                        <p><span>IMDB:</span> @Model.Imdb / 10</p>
+                    </div>
+                </div>
+                <div class="col-12 col-wiki py-3">
+                    <div class="actor-wikipedia">
+                        <div class="wiki-text ">
+                            <p>@Model.Info</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container my-2">
+            <div class="row ">
+                <div class="col-12 category-title">
+                    <h2>
+                        Watch Movie
+                    </h2>
+                </div>
+                <div class="col-12 video-part p-0">
+                    <iframe src="@Model.Video" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 category-title contact-banner">
+                    <h2>
+                        Comments
+                    </h2>
+                </div>
+                <div class="col-12 comment-part">
+                    <form class="comment-form">
+                        <div>
+                            <label for="">Your Name</label>
+                            <input type="text" class="comment-input" placeholder="Enter You Name">
+                        </div>
+                        <div>
+                            <label for="">Your Comment</label>
+                            <textarea type="text" class="comment-textarea"
+                                      placeholder="Enter Your Comment"></textarea>
+                        </div>
+
+                        <a href="#" class="comment-button">Send</a>
+                    </form>
+                    <div class="show-comment  my-2 py-4">
+                        <div class="main-comment my-3">
+                            <div class="comment-title p-2 ">
+                                <span>Jhon Doe</span>
+                                <span>22 iyul 2019</span>
                             </div>
-                            <div class="main-comment my-3">
-                                <div class="comment-title p-2">
-                                    <span>Jhon Doe</span>
-                                    <span>22 iyul 2019</span>
-                                </div>
-                                <div class="comment-text py-4 px-2">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum aut id,
-                                        officiis laboriosam repellat ut ab veritatis eaque quam enim corporis quia
-                                    </p>
-                                </div>
+                            <div class="comment-text py-4 px-2">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum aut id,
+                                    officiis laboriosam repellat ut ab veritatis eaque quam enim corporis quia
+                                </p>
                             </div>
-                            <div class="main-comment my-3">
-                                <div class="comment-title p-2">
-                                    <span>Jhon Doe</span>
-                                    <span>22 iyul 2019</span>
-                                </div>
-                                <div class="comment-text py-4 px-2">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum aut id,
-                                        officiis laboriosam repellat ut ab veritatis eaque quam enim corporis quia
-                                    </p>
-                                </div>
+                        </div>
+                        <div class="main-comment my-3">
+                            <div class="comment-title p-2">
+                                <span>Jhon Doe</span>
+                                <span>22 iyul 2019</span>
                             </div>
-                            <div class="main-comment my-3">
-                                <div class="comment-title p-2">
-                                    <span>Jhon Doe</span>
-                                    <span>22 iyul 2019</span>
-                                </div>
-                                <div class="comment-text py-4 px-2">
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum aut id,
-                                        officiis laboriosam repellat ut ab veritatis eaque quam enim corporis quia
-                                    </p>
-                                </div>
+                            <div class="comment-text py-4 px-2">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum aut id,
+                                    officiis laboriosam repellat ut ab veritatis eaque quam enim corporis quia
+                                </p>
+                            </div>
+                        </div>
+                        <div class="main-comment my-3">
+                            <div class="comment-title p-2">
+                                <span>Jhon Doe</span>
+                                <span>22 iyul 2019</span>
+                            </div>
+                            <div class="comment-text py-4 px-2">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum aut id,
+                                    officiis laboriosam repellat ut ab veritatis eaque quam enim corporis quia
+                                </p>
+                            </div>
+                        </div>
+                        <div class="main-comment my-3">
+                            <div class="comment-title p-2">
+                                <span>Jhon Doe</span>
+                                <span>22 iyul 2019</span>
+                            </div>
+                            <div class="comment-text py-4 px-2">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum aut id,
+                                    officiis laboriosam repellat ut ab veritatis eaque quam enim corporis quia
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>

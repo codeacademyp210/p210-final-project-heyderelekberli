@@ -1,11 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MoviesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Actors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Image" Type="nvarchar" MaxLength="150" />
+    <Property Name="Born" Type="nvarchar" MaxLength="150" />
+    <Property Name="Country" Type="nvarchar" MaxLength="150" />
+    <Property Name="Nationality" Type="nvarchar" MaxLength="150" />
+    <Property Name="Awards" Type="nvarchar" MaxLength="250" />
+    <Property Name="Info" Type="text" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Wikipedia" Type="text" />
+  </EntityType>
   <EntityType Name="Genres">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="MovieActors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActorID" Type="int" />
+    <Property Name="MovieID" Type="int" />
   </EntityType>
   <EntityType Name="MovieGenres">
     <Key>
@@ -25,14 +48,39 @@
     <Property Name="Name" Type="nvarchar" MaxLength="150" />
     <Property Name="Production" Type="nvarchar" MaxLength="150" />
     <Property Name="Duration" Type="nvarchar" MaxLength="150" />
+    <Property Name="Year" Type="float" />
     <Property Name="Director" Type="nvarchar" MaxLength="150" />
-    <Property Name="ActorID" Type="nchar" MaxLength="10" />
     <Property Name="Imdb" Type="float" />
     <Property Name="Video" Type="nvarchar" MaxLength="150" />
-    <Property Name="Slider" Type="nvarchar" MaxLength="10" />
+    <Property Name="Slider" Type="bit" />
     <Property Name="Status" Type="bit" />
     <Property Name="Info" Type="text" />
+    <Property Name="Top" Type="bit" />
   </EntityType>
+  <Association Name="FK_MovieActors_Actors">
+    <End Role="Actors" Type="Self.Actors" Multiplicity="0..1" />
+    <End Role="MovieActors" Type="Self.MovieActors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieActors">
+        <PropertyRef Name="ActorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovieActors_Movies">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+    <End Role="MovieActors" Type="Self.MovieActors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieActors">
+        <PropertyRef Name="MovieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_MovieGenres_Genres">
     <End Role="Genres" Type="Self.Genres" Multiplicity="0..1" />
     <End Role="MovieGenres" Type="Self.MovieGenres" Multiplicity="*" />
@@ -58,9 +106,19 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="MoviesModelStoreContainer">
+    <EntitySet Name="Actors" EntityType="Self.Actors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieActors" EntityType="Self.MovieActors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MovieGenres" EntityType="Self.MovieGenres" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MovieActors_Actors" Association="Self.FK_MovieActors_Actors">
+      <End Role="Actors" EntitySet="Actors" />
+      <End Role="MovieActors" EntitySet="MovieActors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovieActors_Movies" Association="Self.FK_MovieActors_Movies">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="MovieActors" EntitySet="MovieActors" />
+    </AssociationSet>
     <AssociationSet Name="FK_MovieGenres_Genres" Association="Self.FK_MovieGenres_Genres">
       <End Role="Genres" EntitySet="Genres" />
       <End Role="MovieGenres" EntitySet="MovieGenres" />

@@ -26,7 +26,9 @@ namespace FinalProject.Models
         }
     
         public virtual DbSet<Genre> Genres { get; set; }
+        public virtual DbSet<MovieActor> MovieActors { get; set; }
         public virtual DbSet<MovieGenre> MovieGenres { get; set; }
         public virtual DbSet<Movy> Movies { get; set; }
+        public virtual DbSet<Actor> Actors { get; set; }
     }
 }

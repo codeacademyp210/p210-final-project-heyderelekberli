@@ -10,8 +10,6 @@ namespace FinalProject.Controllers
 {
     public class HomeController : MainController
     {
-        
-
         public ActionResult Index()
         {
             HomeViewModel models = new HomeViewModel();
@@ -28,7 +26,6 @@ namespace FinalProject.Controllers
             model.Id = db.Movies.Find(Id).Id;
             model.Name = db.Movies.Find(Id).Name;
             model.Image = db.Movies.Find(Id).Image;
-            model.ActorID = db.Movies.Find(Id).ActorID;
             model.Director = db.Movies.Find(Id).Director;
             model.Duration = db.Movies.Find(Id).Duration;
             model.Imdb = db.Movies.Find(Id).Imdb;
@@ -37,15 +34,16 @@ namespace FinalProject.Controllers
             model.Production = db.Movies.Find(Id).Production;
             model.Slider = db.Movies.Find(Id).Slider;
             model.Status = db.Movies.Find(Id).Status; 
+            model.Year = db.Movies.Find(Id).Year;
+            model.Top = db.Movies.Find(Id).Top;
             model.Video = db.Movies.Find(Id).Video;
             model.Category = db.Movies.Find(Id).MovieGenres.ToList();
+            model.Star = db.Movies.Find(Id).MovieActors.ToList();
             if (model == null)
             {
                 return HttpNotFound();
             }
             return View(model);
-
         }
-      
     }
 }

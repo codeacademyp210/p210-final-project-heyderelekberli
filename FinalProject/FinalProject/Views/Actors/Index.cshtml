@@ -1,4 +1,4 @@
-﻿
+﻿@model FinalProject.Models.HomeViewModel
 @{
     ViewBag.Title = "Index";
 }
@@ -25,167 +25,17 @@
                             Most Popular Actors
                         </h2>
                     </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
+                    @foreach (var actor in Model.Actors)
+                    {
+                        <div class="col-md-3 movie-poster poster-item ">
+                            <div class="base-poster base-actor-poster">
+                                <div class="shadow-actor">
+                                    <a href="@Url.Action("ActorsProfile","Actors", new { Id = actor.Id })">@actor.Name</a>
+                                </div>
+                                <a href="@Url.Action("ActorsProfile","Actors", new { Id = actor.Id })"> <img src="~/Public/image/actors/@actor.Image" alt="Actor_@actor.Id"></a>
                             </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
                         </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/tom-hanks.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster base-actor-poster">
-                            <div class="shadow-actor">
-                                <a href="@Url.Action("ActorsProfile","Actors")">Leonardo DiCaprio</a>
-                            </div>
-                            <a href="@Url.Action("ActorsProfile","Actors")"> <img src="/Public/image/actors/s1200 (1).jpg" alt="1"></a>
-                        </div>
-                    </div>
-
+                    }
                     <div class="col-12 my-3">
                         <ul class=pagination>
                             <li id="previous-page">

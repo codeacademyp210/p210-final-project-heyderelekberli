@@ -15,10 +15,10 @@ namespace FinalProject.Models
     public partial class MovieGenre
     {
         public int Id { get; set; }
-       public Nullable<int> MovieID { get; set; }
+        public Nullable<int> MovieID { get; set; }
         public Nullable<int> GenreID { get; set; }
     
-        public virtual Genre Genre { get; set; } 
+        public virtual Genre Genre { get; set; }
         public virtual Movy Movy { get; set; }
     }
 }

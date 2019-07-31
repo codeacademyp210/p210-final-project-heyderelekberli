@@ -11,11 +11,15 @@ namespace FinalProject.Controllers
     {
         protected MoviesEntities db;
         protected Movy Movie;
+        protected Actor Actor;
+        protected Genre Genre;
 
         protected MainController()
         {
             db = new MoviesEntities();
-            Movie = db.Movies.First();
+            Movie = db.Movies.FirstOrDefault();
+            Actor = db.Actors.FirstOrDefault();
+            Genre = db.Genres.FirstOrDefault();
         }
     }
 }

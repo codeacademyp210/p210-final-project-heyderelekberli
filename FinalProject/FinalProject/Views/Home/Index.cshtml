@@ -8,11 +8,11 @@
                 <div class="row">
                     <div class="col-12 position-relative p-0">
                         <div class="slider">
-                            @foreach (var slider in Model.Movies)
+                            @foreach (var slider in Model.Movies.Where(s=>s.Slider == true))
                             {
                                 <div class="slider-picture">
                                     <a href="@Url.Action("MoviesProfile","Home", new { Id = slider.Id })">
-                                        <img src="/Public/image/slider/@slider.Image" alt="slider_@slider.Id">
+                                        <img src="~/Public/image/content/@slider.Image" alt="slider_@slider.Id">
                                     </a>
                                 </div>
                             }
@@ -59,286 +59,23 @@
                     <div class="col-12 poster-title mb-2">
                         <h2>Watch Movies</h2>
                     </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image//content/point-blank-2019.jpg" alt="1"></a>
+                    @foreach (var imdb in Model.Movies.OrderByDescending(z=>z.Id))
+                    {
+                        <div class="col-md-3 movie-poster poster-item ">
+                            <div class="base-poster">
+                                <a href="@Url.Action("MoviesProfile","Home", new { Id = imdb.Id })">
+                                    <div class="shadow-image">
+                                        <p class="px-2">@imdb.Name</p>
+                                        <p>Director: @imdb.Director</p>
+                                        <p>Duration: @imdb.Duration</p>
+                                        <p>IMDB: @imdb.Imdb/10</p>
+                                        <p>Year: @imdb.Year</p>
+                                    </div>
+                                </a>
+                                <a href="@Url.Action("MoviesProfile","Home", new { Id = imdb.Id })"> <img src="/Public/image/content/@imdb.Image" alt="1"></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/content/point-blank-2019.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/actors/Dwayne.jpg" alt="1"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-3 movie-poster poster-item ">
-                        <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home")">
-                                <div class="shadow-image">
-                                    <p>Point Blank</p>
-                                    <p>Dram,Horror</p>
-                                    <p>Duration: 112 min.</p>
-                                    <p>IMDB: 7.3/10</p>
-                                    <p>Year: 2019</p>
-                                </div>
-                            </a>
-                            <a href="@Url.Action("MoviesProfile","Home")"> <img src="/Public/image/IMDB/warrior.jpg" alt="1"></a>
-                        </div>
-                    </div>
+                    }
                     <div class="col-12 my-3">
                         <ul class=pagination>
                             <li id="previous-page">

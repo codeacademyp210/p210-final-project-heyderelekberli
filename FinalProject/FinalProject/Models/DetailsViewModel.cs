@@ -14,13 +14,16 @@ namespace FinalProject.Models
         public string Production { get; set; }
         public string Duration { get; set; }
         public string Director { get; set; }
+        public Nullable<double> Year { get; set; }
         public string ActorID { get; set; }
         public Nullable<double> Imdb { get; set; }
         public string Video { get; set; }
-        public string Slider { get; set; }
         public Nullable<bool> Status { get; set; }
+        public Nullable<bool> Slider { get; set; }
+        public Nullable<bool> Top { get; set; }
         public string Info { get; set; }
         public List<MovieGenre> Category { get; set; }
+        public List<MovieActor> Star { get; set; }
 
     }
 }

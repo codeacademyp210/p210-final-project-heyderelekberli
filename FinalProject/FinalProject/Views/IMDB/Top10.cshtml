@@ -2,35 +2,35 @@
 @{
     ViewBag.Title = "Top10";
 }
-    <main>
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 category-title">
-                        <h2>
-                            IMDB Top 10
-                        </h2>
-                    </div>
-                    @foreach (var slider in Model.Movies.Where(sd => sd.Id > 1))
-                    {
-                        <div class="col-12 p-0">
-                            <div class="top250-part">
-                                <div class="top250-row">
-                                    <div class="top250-image">
-                                        <a href="@Url.Action("MoviesProfile","Home")">
-                                            <img src="~/Public/image/slider/@slider.Image"
-                                                 alt="top_@slider.Id">
-                                        </a>
-                                    </div>
-                                    <div class="base-top250">
-                                        <a href="@Url.Action("MoviesProfile","Home")">@slider.Name</a>
-                                        <i class="fa fa-star" aria-hidden="true"><span>@slider.Imdb</span> </i>
-                                    </div>
+<main>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 category-title">
+                    <h2>
+                        IMDB Top 10
+                    </h2>
+                </div>
+                @foreach (var top in Model.Movies.Take(10).OrderByDescending(z=>z.Id))
+                {
+                    <div class="col-12 p-0">
+                        <div class="top250-part">
+                            <div class="top250-row">
+                                <div class="top250-image">
+                                    <a href="@Url.Action("MoviesProfile","Home", new { Id = top.Id })">
+                                        <img src="~/Public/image/content/@top.Image"
+                                             alt="top_@top.Id">
+                                    </a>
+                                </div>
+                                <div class="base-top250">
+                                    <a href="@Url.Action("MoviesProfile","Home", new { Id = top.Id })">@top.Name</a>
+                                    <i class="fa fa-star" aria-hidden="true"><span>@top.Imdb</span> </i>
                                 </div>
                             </div>
                         </div>
-                    }
-                </div>
+                    </div>
+                }
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>

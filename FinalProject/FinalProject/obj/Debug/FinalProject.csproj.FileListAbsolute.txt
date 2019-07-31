@@ -69,7 +69,6 @@ C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\bin\System.Web.WebP
 C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\bin\Newtonsoft.Json.xml
 C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\bin\Antlr3.Runtime.pdb
 C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\obj\Debug\FinalProject.csprojAssemblyReference.cache
 C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\obj\Debug\FinalProject.csproj.CoreCompileInputs.cache
 C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\obj\Debug\FinalProject.csproj.CopyComplete
 C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\obj\Debug\FinalProject.dll
@@ -78,3 +77,4 @@ C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\bin\EntityFramework
 C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\bin\EntityFramework.SqlServer.dll
 C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\bin\EntityFramework.xml
 C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\bin\EntityFramework.SqlServer.xml
+C:\Users\Acer\Desktop\FinalProject\FinalProject\FinalProject\obj\Debug\FinalProject.csprojAssemblyReference.cache
