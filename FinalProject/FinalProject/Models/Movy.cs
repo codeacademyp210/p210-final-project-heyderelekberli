@@ -18,6 +18,7 @@ namespace FinalProject.Models
         public Movy()
         {
             this.MovieActors = new HashSet<MovieActor>();
+            this.MovieComments = new HashSet<MovieComment>();
             this.MovieGenres = new HashSet<MovieGenre>();
         }
     
@@ -38,6 +39,8 @@ namespace FinalProject.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovieActor> MovieActors { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MovieComment> MovieComments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovieGenre> MovieGenres { get; set; }
     }

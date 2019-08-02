@@ -9,11 +9,46 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Actors">
+      <EntityTypeMapping TypeName="MoviesModel.Actor">
+        <MappingFragment StoreEntitySet="Actors">
+          <ScalarProperty Name="Wikipedia" ColumnName="Wikipedia" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Awards" ColumnName="Awards" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Born" ColumnName="Born" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="MoviesModel.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Comment1" ColumnName="Comment" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="MovieActors">
       <EntityTypeMapping TypeName="MoviesModel.MovieActor">
         <MappingFragment StoreEntitySet="MovieActors">
           <ScalarProperty Name="MovieID" ColumnName="MovieID" />
           <ScalarProperty Name="ActorID" ColumnName="ActorID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MovieComments">
+      <EntityTypeMapping TypeName="MoviesModel.MovieComment">
+        <MappingFragment StoreEntitySet="MovieComments">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="MovieID" ColumnName="MovieID" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -47,16 +82,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Actors">
-      <EntityTypeMapping TypeName="MoviesModel.Actor">
-        <MappingFragment StoreEntitySet="Actors">
-          <ScalarProperty Name="Wikipedia" ColumnName="Wikipedia" />
+    <EntitySetMapping Name="Seans">
+      <EntityTypeMapping TypeName="MoviesModel.Sean">
+        <MappingFragment StoreEntitySet="Seans">
           <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="Info" ColumnName="Info" />
-          <ScalarProperty Name="Awards" ColumnName="Awards" />
-          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
-          <ScalarProperty Name="Country" ColumnName="Country" />
-          <ScalarProperty Name="Born" ColumnName="Born" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />

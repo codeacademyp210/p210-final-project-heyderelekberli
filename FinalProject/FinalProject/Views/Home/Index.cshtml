@@ -33,20 +33,19 @@
                     <div class="col-md-6 col-select-category">
                         <select name="" id="" class="category-select">
                             <option selected="selected">-CATEGORY-</option>
-                            <option value="">Dram</option>
-                            <option value="">Fantastic</option>
-                            <option value="">Action</option>
-                            <option value="">Comedy</option>
+                            @foreach (var genre in Model.Genres)
+                            {
+                                <option value="@genre.Name">@genre.Name</option>
+                            }
                         </select>
                     </div>
                     <div class="col-md-6 col-select-year">
                         <select name="" id="" class="year-select">
                             <option selected="selected">-YEAR-</option>
-                            <option value="">2015</option>
-                            <option value="">2016</option>
-                            <option value="">2017</option>
-                            <option value="">2018</option>
-                            <option value="">2019</option>
+                            @foreach (var year in Model.Movies.OrderByDescending(x=>x.Year))
+                            {
+                                <option value="@year.Year">@year.Year</option>
+                            }
                         </select>
                         <button class="btn btn-danger">Search</button>
                     </div>
@@ -59,7 +58,13 @@
                     <div class="col-12 poster-title mb-2">
                         <h2>Watch Movies</h2>
                     </div>
-                    @foreach (var imdb in Model.Movies.OrderByDescending(z=>z.Id))
+                    @*@if (Model.Movies.Count() == 0)
+                    {
+                        <span style="color:red">Not Found</span>
+                    }
+                    else
+                    {*@
+                    @foreach (var imdb in Model.Movies)
                     {
                         <div class="col-md-3 movie-poster poster-item ">
                             <div class="base-poster">
@@ -76,6 +81,8 @@
                             </div>
                         </div>
                     }
+                    @*}*@
+
                     <div class="col-12 my-3">
                         <ul class=pagination>
                             <li id="previous-page">

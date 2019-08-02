@@ -15,6 +15,15 @@
     <Property Name="Status" Type="bit" />
     <Property Name="Wikipedia" Type="text" />
   </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Comment" Type="text" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
   <EntityType Name="Genres">
     <Key>
       <PropertyRef Name="Id" />
@@ -29,6 +38,14 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ActorID" Type="int" />
     <Property Name="MovieID" Type="int" />
+  </EntityType>
+  <EntityType Name="MovieComments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MovieID" Type="int" />
+    <Property Name="CommentID" Type="int" />
   </EntityType>
   <EntityType Name="MovieGenres">
     <Key>
@@ -57,6 +74,17 @@
     <Property Name="Info" Type="text" />
     <Property Name="Top" Type="bit" />
   </EntityType>
+  <EntityType Name="Seans">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Image" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
   <Association Name="FK_MovieActors_Actors">
     <End Role="Actors" Type="Self.Actors" Multiplicity="0..1" />
     <End Role="MovieActors" Type="Self.MovieActors" Multiplicity="*" />
@@ -77,6 +105,30 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="MovieActors">
+        <PropertyRef Name="MovieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovieComments_Comments">
+    <End Role="Comments" Type="Self.Comments" Multiplicity="0..1" />
+    <End Role="MovieComments" Type="Self.MovieComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieComments">
+        <PropertyRef Name="CommentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovieComments_Movies">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+    <End Role="MovieComments" Type="Self.MovieComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieComments">
         <PropertyRef Name="MovieID" />
       </Dependent>
     </ReferentialConstraint>
@@ -107,10 +159,13 @@
   </Association>
   <EntityContainer Name="MoviesModelStoreContainer">
     <EntitySet Name="Actors" EntityType="Self.Actors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MovieActors" EntityType="Self.MovieActors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieComments" EntityType="Self.MovieComments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MovieGenres" EntityType="Self.MovieGenres" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Seans" EntityType="Self.Seans" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_MovieActors_Actors" Association="Self.FK_MovieActors_Actors">
       <End Role="Actors" EntitySet="Actors" />
       <End Role="MovieActors" EntitySet="MovieActors" />
@@ -118,6 +173,14 @@
     <AssociationSet Name="FK_MovieActors_Movies" Association="Self.FK_MovieActors_Movies">
       <End Role="Movies" EntitySet="Movies" />
       <End Role="MovieActors" EntitySet="MovieActors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovieComments_Comments" Association="Self.FK_MovieComments_Comments">
+      <End Role="Comments" EntitySet="Comments" />
+      <End Role="MovieComments" EntitySet="MovieComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovieComments_Movies" Association="Self.FK_MovieComments_Movies">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="MovieComments" EntitySet="MovieComments" />
     </AssociationSet>
     <AssociationSet Name="FK_MovieGenres_Genres" Association="Self.FK_MovieGenres_Genres">
       <End Role="Genres" EntitySet="Genres" />

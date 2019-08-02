@@ -124,8 +124,8 @@ MOVIES
   align-items: center;
   color:white;
 }
-.shadow-image p:nth-child(1){
-    text-align:center
+.shadow-image p:nth-child(1), .shadow-image p:nth-child(2) {
+  text-align: center
 }
 .base-poster:hover .shadow-image{
   opacity: 1;
@@ -174,7 +174,7 @@ CATEGORY
 }
 .category-row a:hover{
   text-decoration: none;
-  color:#07b0edaf;
+  color: #07b0edaf;
 }
 .category-title{
   width:100%;

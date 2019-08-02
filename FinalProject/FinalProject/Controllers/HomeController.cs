@@ -10,12 +10,14 @@ namespace FinalProject.Controllers
 {
     public class HomeController : MainController
     {
-        public ActionResult Index()
+        public ActionResult Index( string searching)
         {
             HomeViewModel models = new HomeViewModel();
             models.Movies = db.Movies.ToList();
-            return View(models);
+            models.Genres = db.Genres.ToList();
+            return View(models); /*/*(models.Movies.Where(x => x.Name.Contains(searching) || searching == null).ToList());*/
         }
+
         public ActionResult MoviesProfile(int? Id)
         {
             if (Id == null)
@@ -39,6 +41,7 @@ namespace FinalProject.Controllers
             model.Video = db.Movies.Find(Id).Video;
             model.Category = db.Movies.Find(Id).MovieGenres.ToList();
             model.Star = db.Movies.Find(Id).MovieActors.ToList();
+            model.Comm = db.Movies.Find(Id).MovieComments.ToList();
             if (model == null)
             {
                 return HttpNotFound();

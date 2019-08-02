@@ -6,14 +6,19 @@
     <edmx:Diagrams>
       <Diagram DiagramId="4398a3979b1b404c892468c37bfb850e" Name="Diagram1">
         <EntityTypeShape EntityType="MoviesModel.Genre" Width="1.5" PointX="0.75" PointY="13" />
-        <EntityTypeShape EntityType="MoviesModel.MovieActor" Width="1.5" PointX="3" PointY="0.75" />
-        <EntityTypeShape EntityType="MoviesModel.MovieGenre" Width="1.5" PointX="3" PointY="3.75" />
-        <AssociationConnector Association="MoviesModel.FK_MovieGenres_Genres" />
-        <EntityTypeShape EntityType="MoviesModel.Movy" Width="1.5" PointX="0.75" PointY="1.25" />
-        <AssociationConnector Association="MoviesModel.FK_MovieActors_Movies" />
-        <AssociationConnector Association="MoviesModel.FK_MovieGenres_Movies" />
-        <EntityTypeShape EntityType="MoviesModel.Actor" Width="1.5" PointX="5.375" PointY="1" />
+        <EntityTypeShape EntityType="MoviesModel.Actor" Width="1.5" PointX="0.75" PointY="9.625" />
+        <EntityTypeShape EntityType="MoviesModel.Comment" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MoviesModel.MovieActor" Width="1.5" PointX="3" PointY="1.75" />
+        <EntityTypeShape EntityType="MoviesModel.MovieComment" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="MoviesModel.MovieGenre" Width="1.5" PointX="3.375" PointY="8.5" />
+        <EntityTypeShape EntityType="MoviesModel.Movy" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="MoviesModel.Sean" Width="1.5" PointX="5.75" PointY="1.625" />
         <AssociationConnector Association="MoviesModel.FK_MovieActors_Actors" />
+        <AssociationConnector Association="MoviesModel.FK_MovieComments_Comments" />
+        <AssociationConnector Association="MoviesModel.FK_MovieGenres_Genres" />
+        <AssociationConnector Association="MoviesModel.FK_MovieActors_Movies" />
+        <AssociationConnector Association="MoviesModel.FK_MovieComments_Movies" />
+        <AssociationConnector Association="MoviesModel.FK_MovieGenres_Movies" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

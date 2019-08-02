@@ -28,10 +28,10 @@
                             {
                                 if (item == Model.Category.Count - 1)
                                 {
-                                    <a href="@Url.Action("ActorsProfile","Actors")">  @Model.Category[item].Genre.Name  </a>
+                                    <a href="@Url.Action("Index","Category", new { Id = Model.Category[item].GenreID})">  @Model.Category[item].Genre.Name  </a>
                                     break;
                                 }
-                                <a href="@Url.Action("ActorsProfile","Actors")">  @Model.Category[item].Genre.Name , </a>
+                                <a href="@Url.Action("Index","Category", new { Id = Model.Category[item].GenreID})">  @Model.Category[item].Genre.Name , </a>
 
                             }
                         </p>
@@ -40,12 +40,16 @@
                             <span>Starring:</span>
                             @for (var star = 0; star < Model.Star.Count; star++)
                             {
-                                if (star == Model.Star.Count - 1)
+                                if (star == Model.Star.Count -1)
                                 {
-                                    <a href="@Url.Action("ActorsProfile", "Actors",new { Id = Model.Id})"> @Model.Star[star].Actor.Name </a>
-                                    break;
+                                    <a href="@Url.Action("ActorsProfile", "Actors",new { Id = Model.Star[star].ActorID})"> @Model.Star[star].Actor.Name </a>
+
                                 }
-                                <a href="@Url.Action("ActorsProfile", "Actors",new { Id = Model.Id})"> @Model.Star[star].Actor.Name ,</a>
+                                else
+                                {
+
+                                <a href="@Url.Action("ActorsProfile", "Actors",new { Id = Model.Star[star].ActorID})"> @Model.Star[star].Actor.Name ,</a>
+                                }
 
                             }
                         </p>
@@ -101,54 +105,19 @@
                         <a href="#" class="comment-button">Send</a>
                     </form>
                     <div class="show-comment  my-2 py-4">
+                        @foreach (var comment in Model.Comm)
+                        {
                         <div class="main-comment my-3">
                             <div class="comment-title p-2 ">
-                                <span>Jhon Doe</span>
-                                <span>22 iyul 2019</span>
+                                <span>@comment.Comment.Name</span>
+                                <span>@comment.Comment.Date@*.ToString(string.Format("dd/MM/yyyy"))*@</span>
                             </div>
+                            
                             <div class="comment-text py-4 px-2">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum aut id,
-                                    officiis laboriosam repellat ut ab veritatis eaque quam enim corporis quia
-                                </p>
+                                <p>@comment.Comment.Comment1</p>
                             </div>
                         </div>
-                        <div class="main-comment my-3">
-                            <div class="comment-title p-2">
-                                <span>Jhon Doe</span>
-                                <span>22 iyul 2019</span>
-                            </div>
-                            <div class="comment-text py-4 px-2">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum aut id,
-                                    officiis laboriosam repellat ut ab veritatis eaque quam enim corporis quia
-                                </p>
-                            </div>
-                        </div>
-                        <div class="main-comment my-3">
-                            <div class="comment-title p-2">
-                                <span>Jhon Doe</span>
-                                <span>22 iyul 2019</span>
-                            </div>
-                            <div class="comment-text py-4 px-2">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum aut id,
-                                    officiis laboriosam repellat ut ab veritatis eaque quam enim corporis quia
-                                </p>
-                            </div>
-                        </div>
-                        <div class="main-comment my-3">
-                            <div class="comment-title p-2">
-                                <span>Jhon Doe</span>
-                                <span>22 iyul 2019</span>
-                            </div>
-                            <div class="comment-text py-4 px-2">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum aut id,
-                                    officiis laboriosam repellat ut ab veritatis eaque quam enim corporis quia
-                                </p>
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
             </div>

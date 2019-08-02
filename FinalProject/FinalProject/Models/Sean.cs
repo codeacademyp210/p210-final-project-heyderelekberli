@@ -12,13 +12,13 @@ namespace FinalProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MovieActor
+    public partial class Sean
     {
         public int Id { get; set; }
-        public Nullable<int> ActorID { get; set; }
-        public Nullable<int> MovieID { get; set; }
-    
-        public virtual Actor Actor { get; set; }
-        public virtual Movy Movy { get; set; }
+        public string Name { get; set; }
+        public string Image { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public Nullable<bool> Status { get; set; }
     }
 }

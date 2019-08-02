@@ -1,4 +1,4 @@
-﻿
+﻿@model FinalProject.Models.HomeViewModel
 @{
     ViewBag.Title = "Index";
 }
@@ -13,60 +13,18 @@
                 </div>
                 <div class="col-12 p-0">
                     <div class="cinema-part py-3 ">
-                        <div class="sinema-select my-3">
-                            <div class="sinema-name">
-                                <h4><a href="@Url.Action("SeansProfile","Seans")">"Azerbaijan" CinemaPlus</a></h4>
-                                <p class="ml-2">Address: Baku</p>
+                        @foreach (var seans in Model.Seans)
+                        {
+                            <div class="sinema-select my-3">
+                                <div class="sinema-name">
+                                    <h4><a href="@Url.Action("SeansProfile","Seans",new { Id = seans.Id })">@seans.Name</a></h4>
+                                    <p class="ml-2">Address: @seans.Address</p>
+                                </div>
+                                <div class="sinema-image">
+                                    <img src="/Public/image/cinema/@seans.Image" alt="cinema_@seans.Id">
+                                </div>
                             </div>
-                            <div class="sinema-image">
-                                <img src="/Public/image/cinema/azerbaijancinema.jpg" alt="cinema001">
-                            </div>
-                        </div>
-                        <div class="sinema-select my-3">
-                            <div class="sinema-name">
-                                <h4><a href="@Url.Action("SeansProfile","Seans")">"Azerbaijan" CinemaPlus</a></h4>
-                                <p class="ml-2">Address: Baku</p>
-                            </div>
-                            <div class="sinema-image">
-                                <img src="/Public/image/cinema/azerbaijancinema.jpg" alt="cinema001">
-                            </div>
-                        </div>
-                        <div class="sinema-select my-3">
-                            <div class="sinema-name">
-                                <h4><a href="@Url.Action("SeansProfile","Seans")">"Azerbaijan" CinemaPlus</a></h4>
-                                <p class="ml-2">Address: Baku</p>
-                            </div>
-                            <div class="sinema-image">
-                                <img src="/Public/image/cinema/azerbaijancinema.jpg" alt="cinema001">
-                            </div>
-                        </div>
-                        <div class="sinema-select my-3">
-                            <div class="sinema-name">
-                                <h4><a href="@Url.Action("SeansProfile","Seans")">"Azerbaijan" CinemaPlus</a></h4>
-                                <p class="ml-2">Address: Baku</p>
-                            </div>
-                            <div class="sinema-image">
-                                <img src="/Public/image/cinema/azerbaijancinema.jpg" alt="cinema001">
-                            </div>
-                        </div>
-                        <div class="sinema-select my-3">
-                            <div class="sinema-name">
-                                <h4><a href="@Url.Action("SeansProfile","Seans")">"Azerbaijan" CinemaPlus</a></h4>
-                                <p class="ml-2">Address: Baku</p>
-                            </div>
-                            <div class="sinema-image">
-                                <img src="/Public/image/cinema/azerbaijancinema.jpg" alt="cinema001">
-                            </div>
-                        </div>
-                        <div class="sinema-select my-3">
-                            <div class="sinema-name">
-                                <h4><a href="@Url.Action("SeansProfile","Seans")">"Azerbaijan" CinemaPlus</a></h4>
-                                <p class="ml-2">Address: Baku</p>
-                            </div>
-                            <div class="sinema-image">
-                                <img src="/Public/image/cinema/azerbaijancinema.jpg" alt="cinema001">
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
             </div>

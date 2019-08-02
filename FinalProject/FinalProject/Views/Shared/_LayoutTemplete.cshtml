@@ -48,10 +48,14 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-nav">
-                        <form class="search-form">
-                            <input type="text" placeholder="Search Movies">
-                            <button>Search</button>
-                        </form>
+                        @using (Html.BeginForm("Index", "Home", FormMethod.Get , new { @class="search-form" }))
+                         {
+                            @Html.TextBox("searching", null, new { @class="searching-input", placeholder ="Search Movies", type ="text" })<button class="searching-btn">Search</button>
+                         }
+                        @*<form class="search-form  ">
+                            <input class="searching-input" type="text" placeholder="Search Movies">
+                            <button class="searching-btn">Search</button>
+                        </form>*@
                     </div>
                 </div>
             </div>

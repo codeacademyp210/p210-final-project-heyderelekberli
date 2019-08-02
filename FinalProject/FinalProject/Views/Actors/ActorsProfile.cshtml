@@ -46,7 +46,7 @@
                 {
                     <div class="col-md-3 movie-poster poster-item ">
                         <div class="base-poster">
-                            <a href="@Url.Action("MoviesProfile","Home", new { Id = Model.Id })">
+                            <a href="@Url.Action("MoviesProfile","Home", new { Id = profile.MovieID })">
                                 <div class="shadow-image">
                                     <p>@profile.Movy.Name</p>
                                     <p>Diirector: @profile.Movy.Director</p>
@@ -55,7 +55,7 @@
                                     <p>Year: @profile.Movy.Year</p>
                                 </div>
                             </a>
-                            <a href="@Url.Action("MoviesProfile","Home", new { Id = Model.Id })"> <img src="/Public/image/content/@profile.Movy.Image" alt="profile_@profile.Movy.Id"></a>
+                            <a href="@Url.Action("MoviesProfile","Home", new { Id = profile.MovieID })"> <img src="/Public/image/content/@profile.Movy.Image" alt="profile_@profile.Movy.Id"></a>
                         </div>
                     </div>
                 }
@@ -72,3 +72,4 @@
     </section>
 </main>
 
+@*<img src="~/Public/image/content/" />*@
