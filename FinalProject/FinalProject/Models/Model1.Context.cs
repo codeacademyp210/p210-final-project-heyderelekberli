@@ -25,13 +25,13 @@ namespace FinalProject.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Genre> Genres { get; set; }
-        public virtual DbSet<Actor> Actors { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<MovieActor> MovieActors { get; set; }
         public virtual DbSet<MovieComment> MovieComments { get; set; }
         public virtual DbSet<MovieGenre> MovieGenres { get; set; }
         public virtual DbSet<Movy> Movies { get; set; }
         public virtual DbSet<Sean> Seans { get; set; }
+        public virtual DbSet<Actor> Actors { get; set; }
     }
 }

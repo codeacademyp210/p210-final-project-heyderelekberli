@@ -13,11 +13,11 @@
                     </div>
                     <div class="col-12 col-category p-0">
                         <div class="category-part">
-                            @foreach (var cetegory in Model.Genres)
+                            @foreach (var category in Model.Genres)
                             {
                                 <div class="category-row">
                                     <p>
-                                        <a href="#"> @cetegory.Name ( @Model.Genres.Count )</a>
+                                        <a href="@Url.Action("CategoryProfile","Category", new { Id = category.Id })"> @category.Name (10)</a>
                                     </p>
                                 </div>
                             }
@@ -25,8 +25,5 @@
                     </div>
                 </div>
             </div>
-
-
-            +
         </section>
     </main>

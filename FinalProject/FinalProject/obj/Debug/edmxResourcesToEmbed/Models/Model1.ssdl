@@ -10,7 +10,7 @@
     <Property Name="Born" Type="nvarchar" MaxLength="150" />
     <Property Name="Country" Type="nvarchar" MaxLength="150" />
     <Property Name="Nationality" Type="nvarchar" MaxLength="150" />
-    <Property Name="Awards" Type="nvarchar" MaxLength="250" />
+    <Property Name="Awards" Type="text" />
     <Property Name="Info" Type="text" />
     <Property Name="Status" Type="bit" />
     <Property Name="Wikipedia" Type="text" />

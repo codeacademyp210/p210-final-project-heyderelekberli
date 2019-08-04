@@ -27,12 +27,12 @@
                     </div>
                     @foreach (var actor in Model.Actors)
                     {
-                        <div class="col-md-3 movie-poster poster-item ">
+                        <div class="col-md-3 movie-poster poster-item">
                             <div class="base-poster base-actor-poster">
                                 <div class="shadow-actor">
                                     <a href="@Url.Action("ActorsProfile","Actors", new { Id = actor.Id })">@actor.Name</a>
                                 </div>
-                                <a href="@Url.Action("ActorsProfile","Actors", new { Id = actor.Id })"> <img src="~/Public/image/actors/@actor.Image" alt="Actor_@actor.Id"></a>
+                                <a href="@Url.Action("ActorsProfile","Actors", new { Id = actor.Id })"><img src="~/Public/image/actors/@actor.Image" alt="Actor_@actor.Id"></a>
                             </div>
                         </div>
                     }

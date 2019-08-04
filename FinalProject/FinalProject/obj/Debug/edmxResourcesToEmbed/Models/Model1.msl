@@ -1,35 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MoviesModelStoreContainer" CdmEntityContainer="MoviesEntities">
-    <EntitySetMapping Name="Genres">
-      <EntityTypeMapping TypeName="MoviesModel.Genre">
-        <MappingFragment StoreEntitySet="Genres">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Actors">
-      <EntityTypeMapping TypeName="MoviesModel.Actor">
-        <MappingFragment StoreEntitySet="Actors">
-          <ScalarProperty Name="Wikipedia" ColumnName="Wikipedia" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="Info" ColumnName="Info" />
-          <ScalarProperty Name="Awards" ColumnName="Awards" />
-          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
-          <ScalarProperty Name="Country" ColumnName="Country" />
-          <ScalarProperty Name="Born" ColumnName="Born" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Comments">
       <EntityTypeMapping TypeName="MoviesModel.Comment">
         <MappingFragment StoreEntitySet="Comments">
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Comment1" ColumnName="Comment" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="MoviesModel.Genre">
+        <MappingFragment StoreEntitySet="Genres">
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
@@ -88,6 +72,22 @@
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Actors">
+      <EntityTypeMapping TypeName="MoviesModel.Actor">
+        <MappingFragment StoreEntitySet="Actors">
+          <ScalarProperty Name="Wikipedia" ColumnName="Wikipedia" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Awards" ColumnName="Awards" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Born" ColumnName="Born" />
           <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />

@@ -35,7 +35,7 @@ namespace FinalProject.Controllers
             model.Info = db.Actors.Find(Id).Info;
             model.Wikipedia = db.Actors.Find(Id).Wikipedia;
            
-            model.MovieActors = db.Movies.Find(Id).MovieActors.ToList();
+            model.MovieActors = db.Actors.Find(Id).MovieActors.ToList();
             if (model == null)
             {
                 return HttpNotFound();

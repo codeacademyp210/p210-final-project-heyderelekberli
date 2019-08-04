@@ -15,7 +15,7 @@
           <Property Name="Born" Type="nvarchar" MaxLength="150" />
           <Property Name="Country" Type="nvarchar" MaxLength="150" />
           <Property Name="Nationality" Type="nvarchar" MaxLength="150" />
-          <Property Name="Awards" Type="nvarchar" MaxLength="250" />
+          <Property Name="Awards" Type="text" />
           <Property Name="Info" Type="text" />
           <Property Name="Status" Type="bit" />
           <Property Name="Wikipedia" Type="text" />
@@ -201,18 +201,13 @@
     <edmx:ConceptualModels>
       <Schema Namespace="MoviesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="MoviesEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Genres" EntityType="MoviesModel.Genre" />
-          <EntitySet Name="Actors" EntityType="MoviesModel.Actor" />
           <EntitySet Name="Comments" EntityType="MoviesModel.Comment" />
+          <EntitySet Name="Genres" EntityType="MoviesModel.Genre" />
           <EntitySet Name="MovieActors" EntityType="MoviesModel.MovieActor" />
           <EntitySet Name="MovieComments" EntityType="MoviesModel.MovieComment" />
           <EntitySet Name="MovieGenres" EntityType="MoviesModel.MovieGenre" />
           <EntitySet Name="Movies" EntityType="MoviesModel.Movy" />
           <EntitySet Name="Seans" EntityType="MoviesModel.Sean" />
-          <AssociationSet Name="FK_MovieActors_Actors" Association="MoviesModel.FK_MovieActors_Actors">
-            <End Role="Actor" EntitySet="Actors" />
-            <End Role="MovieActor" EntitySet="MovieActors" />
-          </AssociationSet>
           <AssociationSet Name="FK_MovieComments_Comments" Association="MoviesModel.FK_MovieComments_Comments">
             <End Role="Comment" EntitySet="Comments" />
             <End Role="MovieComment" EntitySet="MovieComments" />
@@ -233,31 +228,12 @@
             <End Role="Movy" EntitySet="Movies" />
             <End Role="MovieGenre" EntitySet="MovieGenres" />
           </AssociationSet>
-          </EntityContainer>
-        <EntityType Name="Genre">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="MovieGenres" Relationship="MoviesModel.FK_MovieGenres_Genres" FromRole="Genre" ToRole="MovieGenre" />
-        </EntityType>
-        <EntityType Name="Actor">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Born" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Nationality" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Awards" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="Boolean" />
-          <Property Name="Wikipedia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="MovieActors" Relationship="MoviesModel.FK_MovieActors_Actors" FromRole="Actor" ToRole="MovieActor" />
-        </EntityType>
+          <EntitySet Name="Actors" EntityType="MoviesModel.Actor" />
+          <AssociationSet Name="FK_MovieActors_Actors" Association="MoviesModel.FK_MovieActors_Actors">
+            <End Role="Actor" EntitySet="Actors" />
+            <End Role="MovieActor" EntitySet="MovieActors" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Comment">
           <Key>
             <PropertyRef Name="Id" />
@@ -268,6 +244,14 @@
           <Property Name="Date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="MovieComments" Relationship="MoviesModel.FK_MovieComments_Comments" FromRole="Comment" ToRole="MovieComment" />
         </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MovieGenres" Relationship="MoviesModel.FK_MovieGenres_Genres" FromRole="Genre" ToRole="MovieGenre" />
+        </EntityType>
         <EntityType Name="MovieActor">
           <Key>
             <PropertyRef Name="Id" />
@@ -275,8 +259,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ActorID" Type="Int32" />
           <Property Name="MovieID" Type="Int32" />
-          <NavigationProperty Name="Actor" Relationship="MoviesModel.FK_MovieActors_Actors" FromRole="MovieActor" ToRole="Actor" />
           <NavigationProperty Name="Movy" Relationship="MoviesModel.FK_MovieActors_Movies" FromRole="MovieActor" ToRole="Movy" />
+          <NavigationProperty Name="Actor" Relationship="MoviesModel.FK_MovieActors_Actors" FromRole="MovieActor" ToRole="Actor" />
         </EntityType>
         <EntityType Name="MovieComment">
           <Key>
@@ -331,18 +315,6 @@
           <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Boolean" />
         </EntityType>
-        <Association Name="FK_MovieActors_Actors">
-          <End Type="MoviesModel.Actor" Role="Actor" Multiplicity="0..1" />
-          <End Type="MoviesModel.MovieActor" Role="MovieActor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Actor">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="MovieActor">
-              <PropertyRef Name="ActorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_MovieComments_Comments">
           <End Type="MoviesModel.Comment" Role="Comment" Multiplicity="0..1" />
           <End Type="MoviesModel.MovieComment" Role="MovieComment" Multiplicity="*" />
@@ -403,41 +375,53 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Actor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Born" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Nationality" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Awards" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Wikipedia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MovieActors" Relationship="MoviesModel.FK_MovieActors_Actors" FromRole="Actor" ToRole="MovieActor" />
+        </EntityType>
+        <Association Name="FK_MovieActors_Actors">
+          <End Type="MoviesModel.Actor" Role="Actor" Multiplicity="0..1" />
+          <End Type="MoviesModel.MovieActor" Role="MovieActor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovieActor">
+              <PropertyRef Name="ActorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MoviesModelStoreContainer" CdmEntityContainer="MoviesEntities">
-          <EntitySetMapping Name="Genres">
-            <EntityTypeMapping TypeName="MoviesModel.Genre">
-              <MappingFragment StoreEntitySet="Genres">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Actors">
-            <EntityTypeMapping TypeName="MoviesModel.Actor">
-              <MappingFragment StoreEntitySet="Actors">
-                <ScalarProperty Name="Wikipedia" ColumnName="Wikipedia" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Info" ColumnName="Info" />
-                <ScalarProperty Name="Awards" ColumnName="Awards" />
-                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="Born" ColumnName="Born" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Comments">
             <EntityTypeMapping TypeName="MoviesModel.Comment">
               <MappingFragment StoreEntitySet="Comments">
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Comment1" ColumnName="Comment" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genres">
+            <EntityTypeMapping TypeName="MoviesModel.Genre">
+              <MappingFragment StoreEntitySet="Genres">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -496,6 +480,22 @@
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Actors">
+            <EntityTypeMapping TypeName="MoviesModel.Actor">
+              <MappingFragment StoreEntitySet="Actors">
+                <ScalarProperty Name="Wikipedia" ColumnName="Wikipedia" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="Awards" ColumnName="Awards" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Born" ColumnName="Born" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

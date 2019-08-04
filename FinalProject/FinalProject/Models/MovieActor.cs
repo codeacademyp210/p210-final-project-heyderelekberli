@@ -18,7 +18,7 @@ namespace FinalProject.Models
         public Nullable<int> ActorID { get; set; }
         public Nullable<int> MovieID { get; set; }
     
-        public virtual Actor Actor { get; set; }
         public virtual Movy Movy { get; set; }
+        public virtual Actor Actor { get; set; }
     }
 }

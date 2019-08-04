@@ -1,0 +1,44 @@
+﻿@model FinalProject.Models.CategoryViewModel
+@{
+    ViewBag.Title = "CategoryProfile";
+}
+
+<main>
+    <section>
+        <div class="container">
+            <div class="row row-poster" id="page">
+                <div class="col-12 category-title">
+                    <h2>Related Movies</h2>
+                </div>
+                @foreach (var category in Model.Category)
+                {
+                    <div class="col-md-3 movie-poster poster-item">
+                        <div class="base-poster">
+                            <a href="@Url.Action("MoviesProfile","Home", new { Id = category.MovieID })">
+                                <div class="shadow-image">
+                                    <p class="px-2">@category.Movy.Name</p>
+                                    <p>Director: @category.Movy.Director</p>
+                                    <p>Duration: @category.Movy.Duration</p>
+                                    <p>IMDB: @category.Movy.Imdb/10</p>
+                                    <p>Year: @category.Movy.Year</p>
+                                </div>
+                            </a>
+                            <a href="@Url.Action("MoviesProfile","Home", new { Id = category.MovieID })"> <img src="/Public/image/content/@category.Movy.Image" alt="new_@category.Movy.Id"></a>
+                        </div>
+                    </div>
+                }
+                <div class="col-12 my-3">
+                    <ul class=pagination>
+                        <li id="previous-page">
+                            <a href="javascript:void(0)" class="pagination-item" aria-label=Previous>
+                                <span aria-hidden=true>&laquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
