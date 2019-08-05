@@ -1,0 +1,54 @@
+@media only screen and (max-width: 768px){
+    .seans-main-image{
+      width:220px;
+      height:150px;
+    }
+    .col-select-category{
+      display: flex !important;
+      justify-content:flex-start !important;
+      align-items: flex-end !important;
+      margin-left:16px;
+    }
+    .col-select-year{
+      display: flex;
+      justify-content: center;
+    }
+    .col-footer-left{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      height:100px;
+    }
+    .col-footer-right{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      height:100px;
+    }
+  }
+  @media only screen and (max-width: 992px){
+    .item{
+     font-size:12px;
+    }
+    .search-form{
+      margin: auto;
+    }
+    .col-nav{
+      display: flex;
+    }
+  }
+  @media only screen and (max-width: 450px){
+    .item{
+      font-size:12px;
+    }
+    .search-form input{
+        width:150px;
+      }
+      .search-form button{
+        width:50px;
+        font-size:13px;
+      }
+      .actor-image{
+ margin:auto;
+      }
+  }

@@ -32,23 +32,23 @@
                 <div class="col-12 category-title">
                     <h2>Choose Movies</h2>
                 </div>
-                @*@foreach (var item in Model.Movies.Where(y=>y.Year == 2019))
+                @foreach (var item in Model.MovieSeans.Where(m=>m.Movy.Year > 2018))
                 {
                     <div class="col-md-3 movie-poster poster-item ">
                         <div class="base-poster">
                             <a href="@Url.Action("SeansTable","Seans", new { Id = item.Id })">
                                 <div class="shadow-image">
-                                    <p class="px-2">@item.Name</p>
-                                    <p>Director: @item.Director</p>
-                                    <p>Duration: @item.Duration</p>
-                                    <p>IMDB: @item.Imdb/10</p>
-                                    <p>Year: @item.Year</p>
+                                    <p class="px-2">@item.Movy.Name</p>
+                                    <p>Director: @item.Movy.Director</p>
+                                    <p>Duration: @item.Movy.Duration</p>
+                                    <p>IMDB: @item.Movy.Imdb/10</p>
+                                    <p>Year: @item.Movy.Year</p>
                                 </div>
                             </a>
-                            <a href="@Url.Action("SeansTable","Seans", new { Id = item.Id })"> <img src="/Public/image/content/@item.Image" alt="Movie_@item.Id"></a>
+                            <a href="@Url.Action("SeansTable","Seans", new { Id = item.Id })"> <img src="/Public/image/content/@item.Movy.Image" alt="Movie_@item.Movy.Id"></a>
                         </div>
                     </div>
-                }*@
+                }
                 <div class="col-12 my-3">
                     <ul class=pagination>
                         <li id="previous-page">
@@ -62,4 +62,3 @@
         </div>
     </section>
 </main>
-

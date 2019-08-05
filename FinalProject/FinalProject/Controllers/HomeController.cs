@@ -41,7 +41,7 @@ namespace FinalProject.Controllers
             model.Video = db.Movies.Find(Id).Video;
             model.Category = db.Movies.Find(Id).MovieGenres.ToList();
             model.Star = db.Movies.Find(Id).MovieActors.ToList();
-            model.Comm = db.Movies.Find(Id).MovieComments.ToList();
+            model.Comments = db.Movies.Find(Id).Comments.ToList();
             if (model == null)
             {
                 return HttpNotFound();

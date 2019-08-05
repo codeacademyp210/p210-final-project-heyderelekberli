@@ -14,6 +14,8 @@ namespace FinalProject.Controllers
         {
             HomeViewModel model = new HomeViewModel();
             model.Seans = db.Seans.ToList();
+            model.MovieActors = db.MovieActors.ToList();
+
             return View(model);
         }
         public ActionResult SeansProfile(int? Id)
@@ -29,6 +31,7 @@ namespace FinalProject.Controllers
             model.Address = db.Seans.Find(Id).Address;
             model.Phone = db.Seans.Find(Id).Phone;
             model.Status = db.Seans.Find(Id).Status;
+            model.MovieSeans = db.Seans.Find(Id).MovieSeans.ToList();
 
             if (model == null)
             {
@@ -36,9 +39,27 @@ namespace FinalProject.Controllers
             }
             return View(model);
         }
-        public ActionResult SeansTable()
+        public ActionResult SeansTable( int? Id)
         {
-            return View();
+            if (Id == null)
+            {
+                return HttpNotFound();
+            }
+            SeansViewModel model = new SeansViewModel();
+            model.Id = db.MovieSeans.Find(Id).Id;
+            model.Name = db.MovieSeans.Find(Id).Sean.Name;
+            model.Phone = db.MovieSeans.Find(Id).Sean.Phone;
+            model.Address = db.MovieSeans.Find(Id).Sean.Address;
+            model.Image = db.MovieSeans.Find(Id).Sean.Image;
+            model.Status = db.MovieSeans.Find(Id).Sean.Status;
+            model.MovieSeans = db.MovieSeans.Find(Id).Sean.MovieSeans.ToList();
+            model.SeansTables = db.MovieSeans.Find(Id).Movy.SeansTables.ToList();
+;
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+            return View(model);
         }
     }
 }

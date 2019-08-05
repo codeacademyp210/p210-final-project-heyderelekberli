@@ -5,7 +5,7 @@ using System.Web;
 
 namespace FinalProject.Models
 {
-    public class CategoryViewModel
+    public class CategoryViewModel : DetailsViewModel
     {
 
         public int Id { get; set; }

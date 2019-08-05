@@ -9,7 +9,7 @@
                     <div class="col-12 category-title">
                         <h2>New Movies</h2>
                     </div>
-                    @foreach (var news in Model.Movies.Where(n=>n.Year == 2019).OrderByDescending(z=>z.Id))
+                    @foreach (var news in Model.Movies.Where(n=>n.Year > 2018).OrderByDescending(z=>z.Id))
                     {
                         <div class="col-md-3 movie-poster poster-item">
                             <div class="base-poster">

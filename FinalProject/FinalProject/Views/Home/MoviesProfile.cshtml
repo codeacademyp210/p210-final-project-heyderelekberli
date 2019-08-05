@@ -28,10 +28,10 @@
                             {
                                 if (item == Model.Category.Count - 1)
                                 {
-                                    <a href="@Url.Action("Index","Category", new { Id = Model.Category[item].GenreID})">  @Model.Category[item].Genre.Name  </a>
+                                    <a href="@Url.Action("CategoryProfile","Category", new { Id = Model.Category[item].GenreID})">  @Model.Category[item].Genre.Name  </a>
                                     break;
                                 }
-                                <a href="@Url.Action("Index","Category", new { Id = Model.Category[item].GenreID})">  @Model.Category[item].Genre.Name , </a>
+                                <a href="@Url.Action("CategoryProfile","Category", new { Id = Model.Category[item].GenreID})">  @Model.Category[item].Genre.Name , </a>
 
                             }
                         </p>
@@ -105,16 +105,16 @@
                         <a href="#" class="comment-button">Send</a>
                     </form>
                     <div class="show-comment  my-2 py-4">
-                        @foreach (var comment in Model.Comm)
+                        @foreach (var comment in Model.Comments)
                         {
                         <div class="main-comment my-3">
                             <div class="comment-title p-2 ">
-                                <span>@comment.Comment.Name</span>
-                                <span>@comment.Comment.Date@*.ToString(string.Format("dd/MM/yyyy"))*@</span>
+                                <span>@comment.Name</span>
+                                <span>@comment.Date@*.ToString(string.Format("dd/MM/yyyy"))*@</span>
                             </div>
                             
                             <div class="comment-text py-4 px-2">
-                                <p>@comment.Comment.Comment1</p>
+                                <p>@comment.Comment1</p>
                             </div>
                         </div>
                         }

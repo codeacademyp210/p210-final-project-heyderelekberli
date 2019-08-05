@@ -12,13 +12,13 @@ namespace FinalProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Comment
+    public partial class SeansTable
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Comment1 { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
         public Nullable<int> MovieID { get; set; }
+        public string Time { get; set; }
+        public string Hall { get; set; }
+        public Nullable<double> Price { get; set; }
     
         public virtual Movy Movy { get; set; }
     }

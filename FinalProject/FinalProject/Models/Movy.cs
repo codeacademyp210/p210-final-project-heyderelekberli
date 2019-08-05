@@ -17,9 +17,11 @@ namespace FinalProject.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Movy()
         {
+            this.Comments = new HashSet<Comment>();
             this.MovieActors = new HashSet<MovieActor>();
-            this.MovieComments = new HashSet<MovieComment>();
             this.MovieGenres = new HashSet<MovieGenre>();
+            this.MovieSeans = new HashSet<MovieSean>();
+            this.SeansTables = new HashSet<SeansTable>();
         }
     
         public int Id { get; set; }
@@ -38,10 +40,14 @@ namespace FinalProject.Models
         public Nullable<bool> Top { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovieActor> MovieActors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MovieComment> MovieComments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovieGenre> MovieGenres { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MovieSean> MovieSeans { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SeansTable> SeansTables { get; set; }
     }
 }

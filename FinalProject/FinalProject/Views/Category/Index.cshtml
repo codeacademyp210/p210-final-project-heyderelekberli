@@ -17,7 +17,7 @@
                             {
                                 <div class="category-row">
                                     <p>
-                                        <a href="@Url.Action("CategoryProfile","Category", new { Id = category.Id })"> @category.Name (10)</a>
+                                        <a href="@Url.Action("CategoryProfile","Category", new { Id = category.Id })"> @category.Name (@category.MovieGenres.Count())</a>
                                     </p>
                                 </div>
                             }

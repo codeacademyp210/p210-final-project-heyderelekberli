@@ -25,7 +25,7 @@ namespace FinalProject.Controllers
             CategoryViewModel model = new CategoryViewModel();
             model.Id = db.Genres.Find(Id).Id;
             model.Name = db.Genres.Find(Id).Name;
-            model.Category = db.Movies.Find(Id).MovieGenres.ToList();
+            model.Category = db.Genres.Find(Id).MovieGenres.ToList();
         
             if (model == null)
             {

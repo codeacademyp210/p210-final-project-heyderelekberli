@@ -1,16 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MoviesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="MoviesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Actors" EntityType="MoviesModel.Actor" />
     <EntitySet Name="Comments" EntityType="MoviesModel.Comment" />
     <EntitySet Name="Genres" EntityType="MoviesModel.Genre" />
     <EntitySet Name="MovieActors" EntityType="MoviesModel.MovieActor" />
-    <EntitySet Name="MovieComments" EntityType="MoviesModel.MovieComment" />
     <EntitySet Name="MovieGenres" EntityType="MoviesModel.MovieGenre" />
     <EntitySet Name="Movies" EntityType="MoviesModel.Movy" />
+    <EntitySet Name="MovieSeans" EntityType="MoviesModel.MovieSean" />
     <EntitySet Name="Seans" EntityType="MoviesModel.Sean" />
-    <AssociationSet Name="FK_MovieComments_Comments" Association="MoviesModel.FK_MovieComments_Comments">
+    <AssociationSet Name="FK_MovieActors_Actors" Association="MoviesModel.FK_MovieActors_Actors">
+      <End Role="Actor" EntitySet="Actors" />
+      <End Role="MovieActor" EntitySet="MovieActors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_Movies" Association="MoviesModel.FK_Comments_Movies">
+      <End Role="Movy" EntitySet="Movies" />
       <End Role="Comment" EntitySet="Comments" />
-      <End Role="MovieComment" EntitySet="MovieComments" />
     </AssociationSet>
     <AssociationSet Name="FK_MovieGenres_Genres" Association="MoviesModel.FK_MovieGenres_Genres">
       <End Role="Genre" EntitySet="Genres" />
@@ -20,20 +25,40 @@
       <End Role="Movy" EntitySet="Movies" />
       <End Role="MovieActor" EntitySet="MovieActors" />
     </AssociationSet>
-    <AssociationSet Name="FK_MovieComments_Movies" Association="MoviesModel.FK_MovieComments_Movies">
-      <End Role="Movy" EntitySet="Movies" />
-      <End Role="MovieComment" EntitySet="MovieComments" />
-    </AssociationSet>
     <AssociationSet Name="FK_MovieGenres_Movies" Association="MoviesModel.FK_MovieGenres_Movies">
       <End Role="Movy" EntitySet="Movies" />
       <End Role="MovieGenre" EntitySet="MovieGenres" />
     </AssociationSet>
-    <EntitySet Name="Actors" EntityType="MoviesModel.Actor" />
-    <AssociationSet Name="FK_MovieActors_Actors" Association="MoviesModel.FK_MovieActors_Actors">
-      <End Role="Actor" EntitySet="Actors" />
-      <End Role="MovieActor" EntitySet="MovieActors" />
+    <AssociationSet Name="FK_MovieSeans_Movies" Association="MoviesModel.FK_MovieSeans_Movies">
+      <End Role="Movy" EntitySet="Movies" />
+      <End Role="MovieSean" EntitySet="MovieSeans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MovieSeans_Seans" Association="MoviesModel.FK_MovieSeans_Seans">
+      <End Role="Sean" EntitySet="Seans" />
+      <End Role="MovieSean" EntitySet="MovieSeans" />
+    </AssociationSet>
+    <EntitySet Name="SeansTables" EntityType="MoviesModel.SeansTable" />
+    <AssociationSet Name="FK_SeansTables_Movies" Association="MoviesModel.FK_SeansTables_Movies">
+      <End Role="Movy" EntitySet="Movies" />
+      <End Role="SeansTable" EntitySet="SeansTables" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Actor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Born" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Nationality" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Awards" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Wikipedia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MovieActors" Relationship="MoviesModel.FK_MovieActors_Actors" FromRole="Actor" ToRole="MovieActor" />
+  </EntityType>
   <EntityType Name="Comment">
     <Key>
       <PropertyRef Name="Id" />
@@ -42,7 +67,8 @@
     <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Comment1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Date" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="MovieComments" Relationship="MoviesModel.FK_MovieComments_Comments" FromRole="Comment" ToRole="MovieComment" />
+    <Property Name="MovieID" Type="Int32" />
+    <NavigationProperty Name="Movy" Relationship="MoviesModel.FK_Comments_Movies" FromRole="Comment" ToRole="Movy" />
   </EntityType>
   <EntityType Name="Genre">
     <Key>
@@ -59,18 +85,8 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ActorID" Type="Int32" />
     <Property Name="MovieID" Type="Int32" />
-    <NavigationProperty Name="Movy" Relationship="MoviesModel.FK_MovieActors_Movies" FromRole="MovieActor" ToRole="Movy" />
     <NavigationProperty Name="Actor" Relationship="MoviesModel.FK_MovieActors_Actors" FromRole="MovieActor" ToRole="Actor" />
-  </EntityType>
-  <EntityType Name="MovieComment">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MovieID" Type="Int32" />
-    <Property Name="CommentID" Type="Int32" />
-    <NavigationProperty Name="Comment" Relationship="MoviesModel.FK_MovieComments_Comments" FromRole="MovieComment" ToRole="Comment" />
-    <NavigationProperty Name="Movy" Relationship="MoviesModel.FK_MovieComments_Movies" FromRole="MovieComment" ToRole="Movy" />
+    <NavigationProperty Name="Movy" Relationship="MoviesModel.FK_MovieActors_Movies" FromRole="MovieActor" ToRole="Movy" />
   </EntityType>
   <EntityType Name="MovieGenre">
     <Key>
@@ -100,9 +116,21 @@
     <Property Name="Status" Type="Boolean" />
     <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Top" Type="Boolean" />
+    <NavigationProperty Name="Comments" Relationship="MoviesModel.FK_Comments_Movies" FromRole="Movy" ToRole="Comment" />
     <NavigationProperty Name="MovieActors" Relationship="MoviesModel.FK_MovieActors_Movies" FromRole="Movy" ToRole="MovieActor" />
-    <NavigationProperty Name="MovieComments" Relationship="MoviesModel.FK_MovieComments_Movies" FromRole="Movy" ToRole="MovieComment" />
     <NavigationProperty Name="MovieGenres" Relationship="MoviesModel.FK_MovieGenres_Movies" FromRole="Movy" ToRole="MovieGenre" />
+    <NavigationProperty Name="MovieSeans" Relationship="MoviesModel.FK_MovieSeans_Movies" FromRole="Movy" ToRole="MovieSean" />
+    <NavigationProperty Name="SeansTables" Relationship="MoviesModel.FK_SeansTables_Movies" FromRole="Movy" ToRole="SeansTable" />
+  </EntityType>
+  <EntityType Name="MovieSean">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MovieID" Type="Int32" />
+    <Property Name="SeansID" Type="Int32" />
+    <NavigationProperty Name="Movy" Relationship="MoviesModel.FK_MovieSeans_Movies" FromRole="MovieSean" ToRole="Movy" />
+    <NavigationProperty Name="Sean" Relationship="MoviesModel.FK_MovieSeans_Seans" FromRole="MovieSean" ToRole="Sean" />
   </EntityType>
   <EntityType Name="Sean">
     <Key>
@@ -114,16 +142,29 @@
     <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="MovieSeans" Relationship="MoviesModel.FK_MovieSeans_Seans" FromRole="Sean" ToRole="MovieSean" />
   </EntityType>
-  <Association Name="FK_MovieComments_Comments">
-    <End Type="MoviesModel.Comment" Role="Comment" Multiplicity="0..1" />
-    <End Type="MoviesModel.MovieComment" Role="MovieComment" Multiplicity="*" />
+  <Association Name="FK_MovieActors_Actors">
+    <End Type="MoviesModel.Actor" Role="Actor" Multiplicity="0..1" />
+    <End Type="MoviesModel.MovieActor" Role="MovieActor" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Comment">
+      <Principal Role="Actor">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="MovieComment">
-        <PropertyRef Name="CommentID" />
+      <Dependent Role="MovieActor">
+        <PropertyRef Name="ActorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_Movies">
+    <End Type="MoviesModel.Movy" Role="Movy" Multiplicity="0..1" />
+    <End Type="MoviesModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="MovieID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -151,18 +192,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_MovieComments_Movies">
-    <End Type="MoviesModel.Movy" Role="Movy" Multiplicity="0..1" />
-    <End Type="MoviesModel.MovieComment" Role="MovieComment" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Movy">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MovieComment">
-        <PropertyRef Name="MovieID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_MovieGenres_Movies">
     <End Type="MoviesModel.Movy" Role="Movy" Multiplicity="0..1" />
     <End Type="MoviesModel.MovieGenre" Role="MovieGenre" Multiplicity="*" />
@@ -175,31 +204,50 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Actor">
+  <Association Name="FK_MovieSeans_Movies">
+    <End Type="MoviesModel.Movy" Role="Movy" Multiplicity="0..1" />
+    <End Type="MoviesModel.MovieSean" Role="MovieSean" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieSean">
+        <PropertyRef Name="MovieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MovieSeans_Seans">
+    <End Type="MoviesModel.Sean" Role="Sean" Multiplicity="0..1" />
+    <End Type="MoviesModel.MovieSean" Role="MovieSean" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sean">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MovieSean">
+        <PropertyRef Name="SeansID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SeansTable">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Born" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Nationality" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Awards" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Status" Type="Boolean" />
-    <Property Name="Wikipedia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="MovieActors" Relationship="MoviesModel.FK_MovieActors_Actors" FromRole="Actor" ToRole="MovieActor" />
+    <Property Name="MovieID" Type="Int32" />
+    <Property Name="Time" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Hall" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Double" />
+    <NavigationProperty Name="Movy" Relationship="MoviesModel.FK_SeansTables_Movies" FromRole="SeansTable" ToRole="Movy" />
   </EntityType>
-  <Association Name="FK_MovieActors_Actors">
-    <End Type="MoviesModel.Actor" Role="Actor" Multiplicity="0..1" />
-    <End Type="MoviesModel.MovieActor" Role="MovieActor" Multiplicity="*" />
+  <Association Name="FK_SeansTables_Movies">
+    <End Type="MoviesModel.Movy" Role="Movy" Multiplicity="0..1" />
+    <End Type="MoviesModel.SeansTable" Role="SeansTable" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Actor">
+      <Principal Role="Movy">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="MovieActor">
-        <PropertyRef Name="ActorID" />
+      <Dependent Role="SeansTable">
+        <PropertyRef Name="MovieID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

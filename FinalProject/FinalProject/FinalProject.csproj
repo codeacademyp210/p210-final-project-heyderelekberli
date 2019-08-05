@@ -130,16 +130,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MovieController.cs" />
     <Compile Include="Controllers\ActorsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IMDBController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\NewController.cs" />
     <Compile Include="Controllers\SeansController.cs" />
-    <Compile Include="Controllers\testController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,10 +173,10 @@
     <Compile Include="Models\MovieActor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MovieComment.cs">
+    <Compile Include="Models\MovieGenre.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MovieGenre.cs">
+    <Compile Include="Models\MovieSean.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Movy.cs">
@@ -186,10 +185,23 @@
     <Compile Include="Models\Sean.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SeansTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SeansViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Style\Actors.html" />
+    <Content Include="Areas\Admin\Style\careers.html" />
+    <Content Include="Areas\Admin\Style\css\site.css" />
+    <Content Include="Areas\Admin\Style\css\media-query.css" />
+    <Content Include="Areas\Admin\Style\Genres.html" />
+    <Content Include="Areas\Admin\Style\image\Joker.gif" />
+    <Content Include="Areas\Admin\Style\index.html" />
+    <Content Include="Areas\Admin\Style\js\Script.js" />
+    <Content Include="Areas\Admin\Style\Movies.html" />
+    <Content Include="Areas\Admin\Style\Seans.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -814,6 +826,11 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

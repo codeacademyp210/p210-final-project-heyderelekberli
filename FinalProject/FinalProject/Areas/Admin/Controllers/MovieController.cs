@@ -8,109 +8,109 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.Models;
 
-namespace FinalProject.Controllers
+namespace FinalProject.Areas.Admin.Controllers
 {
-    public class testController : Controller
+    public class MovieController : Controller
     {
         private MoviesEntities db = new MoviesEntities();
 
-        // GET: test
+        // GET: Admin/Movie
         public ActionResult Index()
         {
-            return View(db.Genres.ToList());
+            return View(db.Movies.ToList());
         }
 
-        // GET: test/Details/5
+        // GET: Admin/Movie/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            Movy movy = db.Movies.Find(id);
+            if (movy == null)
             {
                 return HttpNotFound();
             }
-            return View(genre);
+            return View(movy);
         }
 
-        // GET: test/Create
+        // GET: Admin/Movie/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: test/Create
+        // POST: Admin/Movie/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] Genre genre)
+        public ActionResult Create([Bind(Include = "Id,Image,Number,Name,Production,Duration,Year,Director,Imdb,Video,Slider,Status,Info,Top")] Movy movy)
         {
             if (ModelState.IsValid)
             {
-                db.Genres.Add(genre);
+                db.Movies.Add(movy);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(genre);
+            return View(movy);
         }
 
-        // GET: test/Edit/5
+        // GET: Admin/Movie/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            Movy movy = db.Movies.Find(id);
+            if (movy == null)
             {
                 return HttpNotFound();
             }
-            return View(genre);
+            return View(movy);
         }
 
-        // POST: test/Edit/5
+        // POST: Admin/Movie/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] Genre genre)
+        public ActionResult Edit([Bind(Include = "Id,Image,Number,Name,Production,Duration,Year,Director,Imdb,Video,Slider,Status,Info,Top")] Movy movy)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(genre).State = EntityState.Modified;
+                db.Entry(movy).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(genre);
+            return View(movy);
         }
 
-        // GET: test/Delete/5
+        // GET: Admin/Movie/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Genre genre = db.Genres.Find(id);
-            if (genre == null)
+            Movy movy = db.Movies.Find(id);
+            if (movy == null)
             {
                 return HttpNotFound();
             }
-            return View(genre);
+            return View(movy);
         }
 
-        // POST: test/Delete/5
+        // POST: Admin/Movie/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Genre genre = db.Genres.Find(id);
-            db.Genres.Remove(genre);
+            Movy movy = db.Movies.Find(id);
+            db.Movies.Remove(movy);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

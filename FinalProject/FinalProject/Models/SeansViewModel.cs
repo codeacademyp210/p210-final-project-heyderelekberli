@@ -5,7 +5,7 @@ using System.Web;
 
 namespace FinalProject.Models
 {
-    public class SeansViewModel
+    public class SeansViewModel 
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -13,5 +13,8 @@ namespace FinalProject.Models
         public string Address { get; set; }
         public string Phone { get; set; }
         public Nullable<bool> Status { get; set; }
+        public List<MovieSean> MovieSeans { get; set; }
+        public List<SeansTable> SeansTables { get; set; }
+
     }
 }

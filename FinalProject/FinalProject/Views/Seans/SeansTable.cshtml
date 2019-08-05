@@ -1,4 +1,4 @@
-﻿
+﻿@model FinalProject.Models.SeansViewModel
 @{
     ViewBag.Title = "SeansTable";
 }
@@ -10,15 +10,15 @@
                     <div class="seans-part ">
                         <div class="seans-image px-2 py-2">
                             <div class="seans-main-image">
-                                <img src="/Public/image/cinema/azerbaijancinema2.jpg"
-                                     alt="seans001">
+                                <img src="/Public/image/cinema/@Model.Image"
+                                     alt="seans_@Model.Id">
                             </div>
                         </div>
                         <div class="seans-info ">
                             <div class="contain-info contain-seans mx-0  px-3">
-                                <p><span> Name:</span> "Azerbaijan" CinemaPlus</p>
-                                <p><span>Address:</span> Baku</p>
-                                <p><span>Phone:</span> (012) 499 89 88</p>
+                                <p><span> Name:</span> @Model.Name</p>
+                                <p><span>Address:</span> @Model.Address</p>
+                                <p><span>Phone:</span> @Model.Phone</p>
                             </div>
                         </div>
                     </div>
@@ -41,24 +41,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Point Blank</td>
-                                    <td>16:30</td>
-                                    <td>Hall 1</td>
-                                    <td>5.00 AZN</td>
-                                </tr>
-                                <tr>
-                                    <td>Point Blank</td>
-                                    <td>18:30</td>
-                                    <td>Hall 2</td>
-                                    <td>4.50 AZN</td>
-                                </tr>
-                                <tr>
-                                    <td>Point Blank</td>
-                                    <td>22:00</td>
-                                    <td>Hall 1</td>
-                                    <td>5.00 AZN</td>
-                                </tr>
+                                @foreach (var item in Model.SeansTables)
+                                {
+                                    <tr>
+                                        <td>@item.Movy.Name</td>
+                                        <td>@item.Time</td>
+                                        <td>@item.Hall</td>
+                                        <td>@item.Price AZN</td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>

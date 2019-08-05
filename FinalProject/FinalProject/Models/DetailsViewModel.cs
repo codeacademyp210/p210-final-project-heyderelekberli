@@ -25,7 +25,8 @@ namespace FinalProject.Models
 
         public List<MovieGenre> Category { get; set; }
         public List<MovieActor> Star { get; set; }
-        public List<MovieComment> Comm { get; set; }
+        public List<Comment> Comments { get; set; }
+
 
     }
 }
