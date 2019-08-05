@@ -10,17 +10,17 @@ using FinalProject.Models;
 
 namespace FinalProject.Areas.Admin.Controllers
 {
-    public class MovieController : Controller
+    public class MoviesController : Controller
     {
         private MoviesEntities db = new MoviesEntities();
 
-        // GET: Admin/Movie
+        // GET: Admin/Movies
         public ActionResult Index()
         {
             return View(db.Movies.ToList());
         }
 
-        // GET: Admin/Movie/Details/5
+        // GET: Admin/Movies/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,13 +35,13 @@ namespace FinalProject.Areas.Admin.Controllers
             return View(movy);
         }
 
-        // GET: Admin/Movie/Create
+        // GET: Admin/Movies/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Movie/Create
+        // POST: Admin/Movies/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,7 +58,7 @@ namespace FinalProject.Areas.Admin.Controllers
             return View(movy);
         }
 
-        // GET: Admin/Movie/Edit/5
+        // GET: Admin/Movies/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace FinalProject.Areas.Admin.Controllers
             return View(movy);
         }
 
-        // POST: Admin/Movie/Edit/5
+        // POST: Admin/Movies/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,7 +89,7 @@ namespace FinalProject.Areas.Admin.Controllers
             return View(movy);
         }
 
-        // GET: Admin/Movie/Delete/5
+        // GET: Admin/Movies/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace FinalProject.Areas.Admin.Controllers
             return View(movy);
         }
 
-        // POST: Admin/Movie/Delete/5
+        // POST: Admin/Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

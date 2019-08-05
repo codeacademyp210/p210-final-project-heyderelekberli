@@ -16,14 +16,16 @@
         <nav>
             <div class="container">
                 <div class="row row-navbar">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div class="header-part">
                             <ul>
-                                <li><a class="item" href="./Index.html">Home</a></li>
-                                <li><a class="item" href="~/Areas/Admin/Style/Movies.html">Movies</a></li>
+                                <li><a class="item" href="@Url.Action("Index","Home")">Home</a></li>
+                                <li><a class="item" href="@Url.Action("Index","Movies")">Movies</a></li>
                                 <li><a class="item" href="./Actors.html">Actors</a></li>
                                 <li><a class="item" href="./Genres.html">Genres</a></li>
                                 <li><a class="item" href="./Seans.html">Seans</a></li>
+                                <li><a class="item" href="@Url.Action("Index","MovieGenres")">MoviesGenres</a></li>
+
                             </ul>
                         </div>
                     </div>
