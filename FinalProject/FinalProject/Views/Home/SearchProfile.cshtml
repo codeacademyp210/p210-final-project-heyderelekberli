@@ -1,0 +1,53 @@
+﻿@model FinalProject.Models.HomeViewModel
+
+@{
+    ViewBag.Title = "SearchProfile";
+}
+<main>
+    <section>
+        <div class="container">
+            <div class="row row-poster" id="page">
+                <div class="col-12 category-title">
+                    <h2>Searcing Result</h2>
+                </div>
+                @if (Model.Movies.Count() == 0)
+                {
+                    <div class="result">
+                        <span>Movies Not Found</span>
+                    </div>
+                }
+                else
+                {
+                    foreach (var imdb in Model.Movies)
+                    {
+                        <div class="col-md-3 movie-poster poster-item ">
+                            <div class="base-poster">
+                                <a href="@Url.Action("MoviesProfile","Home", new { Id = imdb.Id})">
+                                    <div class="shadow-image">
+                                        <p class="px-2">@imdb.Name</p>
+                                        <p>Director: @imdb.Director</p>
+                                        <p>Duration: @imdb.Duration</p>
+                                        <p>IMDB: @imdb.Imdb/10</p>
+                                        <p>Year: @imdb.Year</p>
+                                    </div>
+                                </a>
+                                <a href="@Url.Action("MoviesProfile","Home", new { Id = imdb.Id })"> <img src="/Public/image/content/@imdb.Image" alt="1"></a>
+                            </div>
+                        </div>
+                    }
+                }
+
+                <div class="col-12 my-3">
+                    <ul class=pagination>
+                        <li id="previous-page">
+                            <a href="javascript:void(0)" class="pagination-item" aria-label=Previous>
+                                <span aria-hidden=true>&laquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

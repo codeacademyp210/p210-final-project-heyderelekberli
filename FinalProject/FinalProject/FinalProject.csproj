@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MovieGenresController.cs" />
     <Compile Include="Areas\Admin\Controllers\MoviesController.cs" />
@@ -837,6 +838,11 @@
     <Content Include="Areas\Admin\Views\MovieGenres\Details.cshtml" />
     <Content Include="Areas\Admin\Views\MovieGenres\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\MovieGenres\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Comments\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -876,6 +882,7 @@
     <Content Include="Views\Seans\SeansProfile.cshtml" />
     <Content Include="Views\Seans\SeansTable.cshtml" />
     <Content Include="Views\Category\CategoryProfile.cshtml" />
+    <Content Include="Views\Home\SearchProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

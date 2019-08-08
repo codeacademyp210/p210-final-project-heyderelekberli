@@ -10,10 +10,17 @@ namespace FinalProject.Controllers
     public class ActorsController : MainController
     {
         // GET: Actors
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
             HomeViewModel models = new HomeViewModel();
-            models.Actors = db.Actors.ToList();
+            if (!string.IsNullOrEmpty(search))
+            {
+                models.Actors = db.Actors.Where(x => x.Name.Contains(search)).ToList();
+            }
+            else
+            {
+                models.Actors = db.Actors.ToList();
+            }
             return View(models);
         }
 

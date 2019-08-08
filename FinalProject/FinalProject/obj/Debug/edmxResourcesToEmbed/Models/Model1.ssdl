@@ -22,7 +22,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="150" />
     <Property Name="Comment" Type="text" />
-    <Property Name="Date" Type="datetime" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="MovieID" Type="int" />
   </EntityType>
   <EntityType Name="Genres">

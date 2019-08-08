@@ -17,7 +17,7 @@ namespace FinalProject.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Comment1 { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
+        public System.DateTime Date { get; set; }
         public Nullable<int> MovieID { get; set; }
     
         public virtual Movy Movy { get; set; }

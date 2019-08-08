@@ -48,10 +48,10 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-nav">
-                        @using (Html.BeginForm("Index", "Home", FormMethod.Get , new { @class="search-form" }))
-                         {
-                            @Html.TextBox("searching", null, new { @class="searching-input", placeholder ="Search Movies", type ="text" })<button class="searching-btn">Search</button>
-                         }
+                        @using (Html.BeginForm("SearchProfile", "Home", FormMethod.Get, new { @class = "search-form" }))
+                        {
+                            @Html.TextBox("searching", null, new { @class = "searching-input", placeholder = "Search Movies", type = "text" })<button type="submit" class="searching-btn">Search</button>
+                        }
                     </div>
                 </div>
             </div>
@@ -156,4 +156,6 @@
 </body>
 
 </html>
+
+
 

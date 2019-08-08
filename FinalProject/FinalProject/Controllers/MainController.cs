@@ -16,6 +16,7 @@ namespace FinalProject.Controllers
         protected Sean Seans;
         protected Comment Comment;
         protected MovieActor MovieActor;
+        protected MovieGenre MovieGenre;
 
         protected MainController()
         {
@@ -26,6 +27,7 @@ namespace FinalProject.Controllers
             Comment = db.Comments.FirstOrDefault();
             Genre = db.Genres.FirstOrDefault();
             MovieActor = db.MovieActors.FirstOrDefault();
+            MovieGenre = db.MovieGenres.FirstOrDefault();
         }
     }
 }

@@ -91,32 +91,32 @@
                     </h2>
                 </div>
                 <div class="col-12 comment-part">
-                    <form class="comment-form">
-                        <div>
-                            <label for="">Your Name</label>
-                            <input type="text" class="comment-input" placeholder="Enter You Name">
-                        </div>
+                    @using (Html.BeginForm("MoviesProfile", "Home", FormMethod.Post, new { @class = "comment-form" }))
+                    {
+                    <div>
+                        <label for="">Your Name</label>
+                        @Html.TextBox("comment", null, new { @class = "comment-input", placeholder = "Enter Your Name", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
                         <div>
                             <label for="">Your Comment</label>
-                            <textarea type="text" class="comment-textarea"
-                                      placeholder="Enter Your Comment"></textarea>
+                            @Html.TextArea("Comment", null, new { @class = "comment-textarea", placeholder = "Enter Your Comment", type = "text" })
                         </div>
-
-                        <a href="#" class="comment-button">Send</a>
-                    </form>
+                        @Html.ActionLink("Send", "MoviesProfile", null, new { @class = "comment-button" })
+                    }
                     <div class="show-comment  my-2 py-4">
                         @foreach (var comment in Model.Comments)
                         {
-                        <div class="main-comment my-3">
-                            <div class="comment-title p-2 ">
-                                <span>@comment.Name</span>
-                                <span>@comment.Date@*.ToString(string.Format("dd/MM/yyyy"))*@</span>
+                            <div class="main-comment my-3">
+                                <div class="comment-title p-2 ">
+                                    <span>@comment.Name</span>
+                                    <span>@comment.Date.ToString(string.Format("dd MMMM yyyy"))</span>
+                                </div>
+                                <div class="comment-text py-4 px-2">
+                                    <p>@comment.Comment1</p>
+                                </div>
                             </div>
-                            
-                            <div class="comment-text py-4 px-2">
-                                <p>@comment.Comment1</p>
-                            </div>
-                        </div>
                         }
                     </div>
                 </div>

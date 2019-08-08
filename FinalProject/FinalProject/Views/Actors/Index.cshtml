@@ -8,10 +8,10 @@
                 <div class="row">
                     <div class="col-12 col-search-actor">
                         <div class="search-actor">
-                            <form class="search-actor-form">
-                                <input type="text" placeholder="Search Actors">
-                                <button>Search</button>
-                            </form>
+                            @using (Html.BeginForm("Index", "Actors", FormMethod.Get, new { @class = "search-actor-form" }))
+                            {
+                                @Html.TextBox("search", null, new { @class = "search-actor-input", placeholder = "Search Actors", type = "text" })<button type="submit" class="search-actor-button">Search</button>
+                            }
                         </div>
                     </div>
                 </div>
@@ -25,26 +25,35 @@
                             Most Popular Actors
                         </h2>
                     </div>
-                    @foreach (var actor in Model.Actors)
+                    @if (Model.Actors.Count() == 0)
                     {
-                        <div class="col-md-3 movie-poster poster-item">
-                            <div class="base-poster base-actor-poster">
-                                <div class="shadow-actor">
-                                    <a href="@Url.Action("ActorsProfile","Actors", new { Id = actor.Id })">@actor.Name</a>
-                                </div>
-                                <a href="@Url.Action("ActorsProfile","Actors", new { Id = actor.Id })"><img src="~/Public/image/actors/@actor.Image" alt="Actor_@actor.Id"></a>
-                            </div>
+                        <div class="result">
+                            <span> Actor Not Found</span>
                         </div>
                     }
-                    <div class="col-12 my-3">
-                        <ul class=pagination>
-                            <li id="previous-page">
-                                <a href="javascript:void(0)" class="pagination-item"
-                                   aria-label=Previous><span aria-hidden=true>&laquo;</span></a>
-                            </li>
-                        </ul>
+                    else
+                    {
+                        foreach (var actor in Model.Actors)
+                        {
+                            <div class="col-md-3 movie-poster poster-item">
+                                <div class="base-poster base-actor-poster">
+                                    <div class="shadow-actor">
+                                        <a href="@Url.Action("ActorsProfile", "Actors", new { Id = actor.Id })">@actor.Name</a>
+                                    </div>
+                                    <a href="@Url.Action("ActorsProfile", "Actors", new { Id = actor.Id })"><img src="~/Public/image/actors/@actor.Image" alt="Actor_@actor.Id"></a>
+                                </div>
+                            </div>
+                        }
+                    }
+                        <div class="col-12 my-3">
+                            <ul class=pagination>
+                                <li id="previous-page">
+                                    <a href="javascript:void(0)" class="pagination-item"
+                                       aria-label=Previous><span aria-hidden=true>&laquo;</span></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
             </div>
         </section>
     </main>

@@ -321,7 +321,7 @@ Actors
   align-items: center;
   padding-top:15px;
 }
-.search-actor-form input{
+.search-actor-input{
 background-color: black;
 width:250px;
 height:40px;
@@ -330,13 +330,13 @@ outline: none;
 border:1px solid white;
 margin-right:5px;
 }
-.search-actor-form button{
+.search-actor-button{
 width:90px;
 height:39px;
 background-color: white;
 border:transparent;
 }
-.search-actor-form button:focus{
+.search-actor-button:focus{
   outline: none;
 }
 .base-actor-poster{
@@ -494,8 +494,8 @@ VIDEO
   justify-content: center;
   background: url(../image/bg.png);
 }
-video:focus{
-  outline:none;
+video:focus {
+    outline: none;
 }
 iframe {
     width: 80%;
@@ -684,4 +684,13 @@ FIXED BUTTON
 }
 .row-pagination{
   background:white;
+}
+.result{
+    width:100%;
+    height:200px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:25px;
+    color:black;
 }
