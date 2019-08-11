@@ -5,23 +5,23 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4398a3979b1b404c892468c37bfb850e" Name="Diagram1">
-        <EntityTypeShape EntityType="MoviesModel.Actor" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MoviesModel.Genre" Width="1.5" PointX="0.75" PointY="10.5" />
-        <EntityTypeShape EntityType="MoviesModel.MovieActor" Width="1.5" PointX="3" PointY="3.375" />
-        <EntityTypeShape EntityType="MoviesModel.MovieGenre" Width="1.5" PointX="3" PointY="6.375" />
-        <EntityTypeShape EntityType="MoviesModel.Movy" Width="1.5" PointX="0.75" PointY="5.125" />
-        <EntityTypeShape EntityType="MoviesModel.MovieSean" Width="1.5" PointX="3" PointY="9.375" />
-        <EntityTypeShape EntityType="MoviesModel.Sean" Width="1.5" PointX="0.75" PointY="13.125" />
+        <EntityTypeShape EntityType="MoviesModel.Actor" Width="1.5" PointX="0.75" PointY="14.625" />
+        <EntityTypeShape EntityType="MoviesModel.Comment" Width="1.5" PointX="3" PointY="13.75" />
+        <EntityTypeShape EntityType="MoviesModel.Genre" Width="1.5" PointX="0.75" PointY="11.375" />
+        <EntityTypeShape EntityType="MoviesModel.MovieActor" Width="1.5" PointX="3" PointY="10.125" />
+        <EntityTypeShape EntityType="MoviesModel.MovieGenre" Width="1.5" PointX="3" PointY="7.125" />
+        <EntityTypeShape EntityType="MoviesModel.Movy" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="MoviesModel.MovieSean" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="MoviesModel.Sean" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="MoviesModel.SeansTable" Width="1.5" PointX="3" PointY="16.75" />
         <AssociationConnector Association="MoviesModel.FK_MovieActors_Actors" />
+        <AssociationConnector Association="MoviesModel.FK_Comments_Movies" />
         <AssociationConnector Association="MoviesModel.FK_MovieGenres_Genres" />
         <AssociationConnector Association="MoviesModel.FK_MovieActors_Movies" />
         <AssociationConnector Association="MoviesModel.FK_MovieGenres_Movies" />
         <AssociationConnector Association="MoviesModel.FK_MovieSeans_Movies" />
-        <AssociationConnector Association="MoviesModel.FK_MovieSeans_Seans" />
-        <EntityTypeShape EntityType="MoviesModel.SeansTable" Width="1.5" PointX="3" PointY="0.75" />
         <AssociationConnector Association="MoviesModel.FK_SeansTables_Movies" />
-        <EntityTypeShape EntityType="MoviesModel.Comment" Width="1.5" PointX="3" PointY="12.375" />
-        <AssociationConnector Association="MoviesModel.FK_Comments_Movies" />
+        <AssociationConnector Association="MoviesModel.FK_MovieSeans_Seans" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

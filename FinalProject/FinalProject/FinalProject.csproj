@@ -129,8 +129,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ActorsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GenresController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MovieActorsController.cs" />
     <Compile Include="Areas\Admin\Controllers\MovieGenresController.cs" />
     <Compile Include="Areas\Admin\Controllers\MoviesController.cs" />
     <Compile Include="Controllers\ActorsController.cs" />
@@ -194,16 +197,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Style\Actors.html" />
-    <Content Include="Areas\Admin\Style\careers.html" />
     <Content Include="Areas\Admin\Style\css\site.css" />
     <Content Include="Areas\Admin\Style\css\media-query.css" />
-    <Content Include="Areas\Admin\Style\Genres.html" />
     <Content Include="Areas\Admin\Style\image\Joker.gif" />
-    <Content Include="Areas\Admin\Style\index.html" />
     <Content Include="Areas\Admin\Style\js\Script.js" />
-    <Content Include="Areas\Admin\Style\Movies.html" />
-    <Content Include="Areas\Admin\Style\Seans.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -843,6 +840,21 @@
     <Content Include="Areas\Admin\Views\Comments\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Comments\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Comments\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MovieActors\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\MovieActors\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\MovieActors\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\MovieActors\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\MovieActors\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Actors\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Actors\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Actors\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Actors\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Actors\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Genres\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Genres\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Genres\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Genres\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Genres\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

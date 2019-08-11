@@ -17,6 +17,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="MoviesModel.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Comment1" ColumnName="Comment" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Genres">
       <EntityTypeMapping TypeName="MoviesModel.Genre">
         <MappingFragment StoreEntitySet="Genres">
@@ -91,17 +102,6 @@
           <ScalarProperty Name="Hall" ColumnName="Hall" />
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="MovieID" ColumnName="MovieID" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Comments">
-      <EntityTypeMapping TypeName="MoviesModel.Comment">
-        <MappingFragment StoreEntitySet="Comments">
-          <ScalarProperty Name="MovieID" ColumnName="MovieID" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Comment1" ColumnName="Comment" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

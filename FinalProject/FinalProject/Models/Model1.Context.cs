@@ -26,6 +26,7 @@ namespace FinalProject.Models
         }
     
         public virtual DbSet<Actor> Actors { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<MovieActor> MovieActors { get; set; }
         public virtual DbSet<MovieGenre> MovieGenres { get; set; }
@@ -33,6 +34,5 @@ namespace FinalProject.Models
         public virtual DbSet<MovieSean> MovieSeans { get; set; }
         public virtual DbSet<Sean> Seans { get; set; }
         public virtual DbSet<SeansTable> SeansTables { get; set; }
-        public virtual DbSet<Comment> Comments { get; set; }
     }
 }
