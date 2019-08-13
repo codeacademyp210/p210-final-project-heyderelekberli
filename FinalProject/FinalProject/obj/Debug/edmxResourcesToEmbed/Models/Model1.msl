@@ -36,6 +36,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="MoviesModel.Login">
+        <MappingFragment StoreEntitySet="Logins">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="MovieActors">
       <EntityTypeMapping TypeName="MoviesModel.MovieActor">
         <MappingFragment StoreEntitySet="MovieActors">
@@ -102,6 +111,17 @@
           <ScalarProperty Name="Hall" ColumnName="Hall" />
           <ScalarProperty Name="Time" ColumnName="Time" />
           <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="MoviesModel.Contact">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

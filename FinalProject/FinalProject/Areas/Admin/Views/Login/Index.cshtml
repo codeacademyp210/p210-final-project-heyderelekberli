@@ -1,0 +1,109 @@
+﻿@model FinalProject.Models.Login
+@{
+    ViewBag.Title = "Login";
+    Layout = "";
+}
+
+<head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- For Search Engine Meta Data  -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="yoursite.com" />
+
+    <title>Login</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/icon" href="~/Areas/Admin/Style/image/favicon-16x16.html" />
+
+    <!-- Main structure css file -->
+    <link rel="stylesheet" href="~/Areas/Admin/Style/css/login3-style.css">
+    <link rel="stylesheet" href="~/Areas/Admin/Style/css/media-query.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if IE]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<!-- Start Preloader -->
+<div id="preload-block">
+    <div class="square-block"></div>
+</div>
+<!-- Preloader End -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="authfy-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3 ff">
+            <div class="form-group">
+                <p>Email: "Admin@code.edu.az"</p>
+                <p>Password: "Admin1234"</p>
+            </div>
+            <div class="col-sm-7 authfy-panel-right center-part">
+                <!-- authfy-login start -->
+                <div class="authfy-login">
+                    <!-- panel-login start -->
+                    <div class="authfy-panel panel-login text-center active">
+                        <div class="authfy-heading">
+                            <h3 class="auth-title">Login to your account</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12">
+                                <form name="loginForm" class="loginForm" action="@Url.Action("Login", "Login")" method="POST">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(l => l.Email, new { @class = "form-control", name = "email", placeholder = "Email address", required = true, type = "email" })
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="pwdMask">
+                                            @Html.PasswordFor(l => l.Password, new { @class = "form-control", name = "password", placeholder = "Password", required = true, type = "password" })
+
+                                            <span class="fa fa-eye-slash pwd-toggle"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row remember-row">
+                                        <div class="col-xs-6 col-sm-6">
+                                            <label class="checkbox text-left">
+                                                <input type="checkbox" value="remember-me">
+                                                <span class="label-text">Remember me</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-block btn-warning" value="Log In">
+                                    </div>
+
+                                    @if (@Session["loginError"] != null)
+                                    {
+                                        <div class="alert alert-danger">@Session["loginError"]</div>
+                                        Session["loginError"] = null;
+                                    }
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Javascript Files -->
+<!-- initialize jQuery Library -->
+<script src="~/Areas/Admin/Style/js/jquery-2.2.4.min.js"></script>
+<!-- for Bootstrap js -->
+<script src="~/Areas/Admin/Style/js/bootstrap.min.js"></script>
+<!-- Custom js-->
+<script src="~/Areas/Admin/Style/js/custom.js"></script>
+<script src="js/custom.js"></script>
+
+

@@ -30,12 +30,30 @@
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="MovieID" Type="int" />
         </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="250" />
+          <Property Name="Message" Type="text" />
+        </EntityType>
         <EntityType Name="Genres">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Logins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="Password" Type="text" />
         </EntityType>
         <EntityType Name="MovieActors">
           <Key>
@@ -200,7 +218,9 @@
         <EntityContainer Name="MoviesModelStoreContainer">
           <EntitySet Name="Actors" EntityType="Self.Actors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logins" EntityType="Self.Logins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MovieActors" EntityType="Self.MovieActors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MovieGenres" EntityType="Self.MovieGenres" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
@@ -248,6 +268,7 @@
           <EntitySet Name="Actors" EntityType="MoviesModel.Actor" />
           <EntitySet Name="Comments" EntityType="MoviesModel.Comment" />
           <EntitySet Name="Genres" EntityType="MoviesModel.Genre" />
+          <EntitySet Name="Logins" EntityType="MoviesModel.Login" />
           <EntitySet Name="MovieActors" EntityType="MoviesModel.MovieActor" />
           <EntitySet Name="MovieGenres" EntityType="MoviesModel.MovieGenre" />
           <EntitySet Name="Movies" EntityType="MoviesModel.Movy" />
@@ -286,6 +307,7 @@
             <End Role="Sean" EntitySet="Seans" />
             <End Role="MovieSean" EntitySet="MovieSeans" />
           </AssociationSet>
+          <EntitySet Name="Contacts" EntityType="MoviesModel.Contact" />
         </EntityContainer>
         <EntityType Name="Actor">
           <Key>
@@ -321,6 +343,14 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MovieGenres" Relationship="MoviesModel.FK_MovieGenres_Genres" FromRole="Genre" ToRole="MovieGenre" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="MovieActor">
           <Key>
@@ -495,6 +525,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -532,6 +572,15 @@
             <EntityTypeMapping TypeName="MoviesModel.Genre">
               <MappingFragment StoreEntitySet="Genres">
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="MoviesModel.Login">
+              <MappingFragment StoreEntitySet="Logins">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -602,6 +651,17 @@
                 <ScalarProperty Name="Hall" ColumnName="Hall" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="MoviesModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

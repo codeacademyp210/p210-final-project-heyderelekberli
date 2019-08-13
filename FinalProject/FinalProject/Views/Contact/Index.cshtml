@@ -1,4 +1,4 @@
-﻿
+﻿@model FinalProject.Models.Contact
 @{
     ViewBag.Title = "Index";
 }
@@ -15,20 +15,16 @@
                     <form id="contact-form" action="/" method="post">
                         <div>
                             <label> <span>Name</span></label>
-                            <input placeholder="Please enter your name" type="text" tabindex="1" required autofocus>
-                        </div>
-                        <div>
+                            @Html.TextBox("contact", null, new { placeholder = "Please enter your name", type = "text", tabindex = "1", required = "true", autofocus = "true" })
+                        </div> <div>
                             <label> <span>Email</span></label>
-                            <input placeholder="Please enter your email" type="email" tabindex="2" required>
-                        </div>
-                        <div>
+                            @Html.TextBox("contact", null, new { placeholder = "Please enter your email", type = "email", tabindex = "2", required = "true" })
+                        </div> <div>
                             <label> <span>Telephone</span></label>
-                            <input placeholder="Please enter your number" type="tel" tabindex="3" required>
-                        </div>
-                        <div>
+                            @Html.TextBox("contact", null, new { placeholder = "Please enter your number", type = "tel", tabindex = "3", required = "true" })
+                        </div> <div>
                             <label> <span>Message</span></label>
-                            <textarea placeholder="Include all the details you can" tabindex="5"
-                                      required></textarea>
+                            @Html.TextArea("contact", null, new { placeholder = "Include all the details you can", tabindex = "5", required = "true" })
                         </div>
                         <div>
                             <button name="submit" type="submit" id="contact-submit">Send Email</button>

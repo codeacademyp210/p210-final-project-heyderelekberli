@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using FinalProject.Areas.Admin.Helpers;
 using FinalProject.Models;
 
 namespace FinalProject.Areas.Admin.Controllers
 {
+    [Auth]
     public class GenresController : Controller
     {
         private MoviesEntities db = new MoviesEntities();

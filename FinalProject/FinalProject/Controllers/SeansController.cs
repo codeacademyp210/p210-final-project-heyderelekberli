@@ -39,7 +39,7 @@ namespace FinalProject.Controllers
             }
             return View(model);
         }
-        public ActionResult SeansTable( int? Id)
+        public ActionResult SeansTable(int? Id)
         {
             if (Id == null)
             {
@@ -54,7 +54,7 @@ namespace FinalProject.Controllers
             model.Status = db.MovieSeans.Find(Id).Sean.Status;
             model.MovieSeans = db.MovieSeans.Find(Id).Sean.MovieSeans.ToList();
             model.SeansTables = db.MovieSeans.Find(Id).Movy.SeansTables.ToList();
-;
+            ;
             if (model == null)
             {
                 return HttpNotFound();

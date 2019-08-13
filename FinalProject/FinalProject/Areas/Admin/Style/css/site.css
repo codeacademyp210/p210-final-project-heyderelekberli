@@ -1,6 +1,5 @@
 body {
     font-family: "Lato", sans-serif;
-    background-image: url("../image/bg.jpg");
     background-repeat: repeat;
     z-index: -5;
   }
@@ -11,8 +10,14 @@ body {
   */
 .header-part {
     width: 100%;
-    display: flex;
+    display: flex !important;
     flex-direction: row;
+    justify-content: space-between !important;
+}
+.header-part ul:nth-child(2) {
+   display: flex !important;
+   flex-direction: row;
+   justify-content: flex-end !important;       
 }
 .row-navbar {
     border: 2px solid transparent;
@@ -145,7 +150,7 @@ FOOTER
 }
 .back-picture{
     width:100%;
-    height:600px;
+    height:550px;
 }
 .back-picture img{
     width:100%;

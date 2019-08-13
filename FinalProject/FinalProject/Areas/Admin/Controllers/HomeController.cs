@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProject.Areas.Admin.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +9,7 @@ namespace FinalProject.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Admin/Home
+        [Auth]
         public ActionResult Index()
         {
             return View();

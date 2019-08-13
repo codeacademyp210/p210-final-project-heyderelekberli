@@ -4,6 +4,7 @@
     <EntitySet Name="Actors" EntityType="MoviesModel.Actor" />
     <EntitySet Name="Comments" EntityType="MoviesModel.Comment" />
     <EntitySet Name="Genres" EntityType="MoviesModel.Genre" />
+    <EntitySet Name="Logins" EntityType="MoviesModel.Login" />
     <EntitySet Name="MovieActors" EntityType="MoviesModel.MovieActor" />
     <EntitySet Name="MovieGenres" EntityType="MoviesModel.MovieGenre" />
     <EntitySet Name="Movies" EntityType="MoviesModel.Movy" />
@@ -42,6 +43,7 @@
       <End Role="Sean" EntitySet="Seans" />
       <End Role="MovieSean" EntitySet="MovieSeans" />
     </AssociationSet>
+    <EntitySet Name="Contacts" EntityType="MoviesModel.Contact" />
   </EntityContainer>
   <EntityType Name="Actor">
     <Key>
@@ -77,6 +79,14 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="MovieGenres" Relationship="MoviesModel.FK_MovieGenres_Genres" FromRole="Genre" ToRole="MovieGenre" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="MovieActor">
     <Key>
@@ -251,4 +261,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

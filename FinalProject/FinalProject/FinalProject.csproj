@@ -130,12 +130,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ActorsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\GenresController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\MovieActorsController.cs" />
     <Compile Include="Areas\Admin\Controllers\MovieGenresController.cs" />
     <Compile Include="Areas\Admin\Controllers\MoviesController.cs" />
+    <Compile Include="Areas\Admin\Helpers\Auth.cs" />
     <Compile Include="Controllers\ActorsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -155,11 +156,17 @@
     <Compile Include="Models\Comment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DetailsViewModel.cs" />
     <Compile Include="Models\Genre.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\Login.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -197,10 +204,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Style\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Style\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Style\css\login3-style.css" />
+    <Content Include="Areas\Admin\Style\css\preloader.css" />
     <Content Include="Areas\Admin\Style\css\site.css" />
     <Content Include="Areas\Admin\Style\css\media-query.css" />
+    <Content Include="Areas\Admin\Style\fonts\fontawesome-webfont78ce.svg" />
+    <Content Include="Areas\Admin\Style\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="Areas\Admin\Style\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Admin\Style\image\brand-logo-white.png" />
+    <Content Include="Areas\Admin\Style\image\favicon-16x16.html" />
     <Content Include="Areas\Admin\Style\image\Joker.gif" />
+    <Content Include="Areas\Admin\Style\image\preloader.gif" />
+    <Content Include="Areas\Admin\Style\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Style\js\custom.js" />
+    <Content Include="Areas\Admin\Style\js\jquery-2.2.4.min.js" />
     <Content Include="Areas\Admin\Style\js\Script.js" />
+    <Content Include="Areas\Admin\Style\login-03.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -835,11 +856,6 @@
     <Content Include="Areas\Admin\Views\MovieGenres\Details.cshtml" />
     <Content Include="Areas\Admin\Views\MovieGenres\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\MovieGenres\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Comments\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Comments\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Comments\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Comments\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Comments\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MovieActors\Create.cshtml" />
     <Content Include="Areas\Admin\Views\MovieActors\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\MovieActors\Details.cshtml" />
@@ -855,6 +871,15 @@
     <Content Include="Areas\Admin\Views\Genres\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Genres\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Genres\Index.cshtml" />
+    <Content Include="Areas\Admin\Style\fonts\fontawesome-webfont78ce.eot" />
+    <Content Include="Areas\Admin\Style\fonts\fontawesome-webfont78ce.ttf" />
+    <Content Include="Areas\Admin\Style\fonts\fontawesome-webfont78ce.woff" />
+    <Content Include="Areas\Admin\Style\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Areas\Admin\Style\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\Style\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Admin\Style\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\Style\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
