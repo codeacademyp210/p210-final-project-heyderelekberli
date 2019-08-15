@@ -136,6 +136,8 @@
     <Compile Include="Areas\Admin\Controllers\MovieActorsController.cs" />
     <Compile Include="Areas\Admin\Controllers\MovieGenresController.cs" />
     <Compile Include="Areas\Admin\Controllers\MoviesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SeansController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SeansTablesController.cs" />
     <Compile Include="Areas\Admin\Helpers\Auth.cs" />
     <Compile Include="Controllers\ActorsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -880,6 +882,16 @@
     <Content Include="Areas\Admin\Style\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Admin\Style\fonts\glyphicons-halflings-regulard41d.eot" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Seans\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Seans\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Seans\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Seans\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Seans\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SeansTables\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SeansTables\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SeansTables\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SeansTables\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SeansTables\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

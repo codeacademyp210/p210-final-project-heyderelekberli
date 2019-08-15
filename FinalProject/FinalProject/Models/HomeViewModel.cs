@@ -14,5 +14,6 @@ namespace FinalProject.Models
         public List<Sean> Seans { get; set; }
         public List<Comment> Comments { get; set; }
         public List<MovieActor> MovieActors { get; set; }
+        public List<Contact> Contacts { get; set; }
     }
 }

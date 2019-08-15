@@ -10,16 +10,35 @@ namespace FinalProject.Controllers
 {
     public class HomeController : MainController
     {
+        HomeViewModel models = new HomeViewModel();
+
+        public HomeController()
+        {
+            models.Genres = db.Genres.ToList();
+            models.SliderMovies = db.Movies.Where(s => s.Slider == true).ToList();
+        }
+
         public ActionResult Index(int? Id)
         {
-            HomeViewModel models = new HomeViewModel();
-            models.Movies = db.Movies.Where(x => x.Year == Movie.Id).ToList();
             models.Movies = db.Movies.ToList();
-            models.Genres = db.Genres.ToList();
-
-            models.SliderMovies = db.Movies.Where(s => s.Slider == true).ToList();
             return View(models);
         }
+
+        public ActionResult Select(int? categoryId, int? year)
+        {
+            var genres = db.MovieGenres.Where(g => g.GenreID == categoryId).Where(g=>g.Movy.Year == year).ToList();
+            List<Movy> movies = new List<Movy>();
+
+            foreach (var item in genres)
+            {
+                movies.Add(item.Movy);
+            }
+
+
+            models.Movies = movies;
+            return View("Index", models);
+        }
+
         public ActionResult SearchProfile( string searching)
         {
             HomeViewModel models = new HomeViewModel();
@@ -69,12 +88,10 @@ namespace FinalProject.Controllers
         }
         public ActionResult CommentSave(Comment comment)
         {
-            if (comment.Id == 0)
-            {
-                db.Comments.Add(comment);
-            }
+            comment.Date = DateTime.Now;
+            db.Comments.Add(comment);
             db.SaveChanges();
-            return View("MoviesProfile");
+            return View();
         }
     }
 }

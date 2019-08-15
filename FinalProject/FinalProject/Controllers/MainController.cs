@@ -17,6 +17,7 @@ namespace FinalProject.Controllers
         protected Comment Comment;
         protected MovieActor MovieActor;
         protected MovieGenre MovieGenre;
+        protected Contact Contact;
 
         protected MainController()
         {
@@ -28,6 +29,7 @@ namespace FinalProject.Controllers
             Genre = db.Genres.FirstOrDefault();
             MovieActor = db.MovieActors.FirstOrDefault();
             MovieGenre = db.MovieGenres.FirstOrDefault();
+            Contact = db.Contacts.FirstOrDefault();
         }
     }
 }

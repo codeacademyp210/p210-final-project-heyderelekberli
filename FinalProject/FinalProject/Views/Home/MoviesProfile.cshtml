@@ -95,13 +95,13 @@
                     {
                     <div>
                         <label for="">Your Name</label>
-                        @Html.TextBox("comment", null, new { @class = "comment-input", placeholder = "Enter Your Name", type = "text" })
+                        @Html.TextBox("Names", null, new { @class = "comment-input", placeholder = "Enter Your Name", type = "text" })
 
                         @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                     </div>
                         <div>
                             <label for="">Your Comment</label>
-                            @Html.TextArea("Comment", null, new { @class = "comment-textarea", placeholder = "Enter Your Comment", type = "text" })
+                            @Html.TextArea("Comment1", null, new { @class = "comment-textarea", placeholder = "Enter Your Comment", type = "text" })
                         </div>
                         @Html.ActionLink("Send", "MoviesProfile", null, new { @class = "comment-button" })
                     }
@@ -111,7 +111,7 @@
                             <div class="main-comment my-3">
                                 <div class="comment-title p-2 ">
                                     <span>@comment.Name</span>
-                                    <span>@comment.Date.ToString(string.Format("dd MMMM yyyy"))</span>
+                                    <span>@comment.Date.ToString("ddMMMMyyyy")</span>
                                 </div>
                                 <div class="comment-text py-4 px-2">
                                     <p>@comment.Comment1</p>

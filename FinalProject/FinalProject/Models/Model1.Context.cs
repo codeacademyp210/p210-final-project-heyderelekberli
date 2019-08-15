@@ -25,8 +25,10 @@ namespace FinalProject.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<SeansTable> SeansTables { get; set; }
         public virtual DbSet<Actor> Actors { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<MovieActor> MovieActors { get; set; }
@@ -34,7 +36,5 @@ namespace FinalProject.Models
         public virtual DbSet<Movy> Movies { get; set; }
         public virtual DbSet<MovieSean> MovieSeans { get; set; }
         public virtual DbSet<Sean> Seans { get; set; }
-        public virtual DbSet<SeansTable> SeansTables { get; set; }
-        public virtual DbSet<Contact> Contacts { get; set; }
     }
 }

@@ -10,15 +10,18 @@ body {
   */
 .header-part {
     width: 100%;
-    display: flex !important;
-    flex-direction: row;
-    justify-content: space-between !important;
+  
 }
-.header-part ul:nth-child(2) {
-   display: flex !important;
-   flex-direction: row;
-   justify-content: flex-end !important;       
-}
+    .header-part ul {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-around !important;
+    }
+    .header-part ul:nth-child(2) {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: flex-end !important;
+    }
 .row-navbar {
     border: 2px solid transparent;
     background-color: #1a1a1a;

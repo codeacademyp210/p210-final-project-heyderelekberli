@@ -12,25 +12,25 @@
                     </h2>
                 </div>
                 <div class="col-md-6 p-0">
-                    <form id="contact-form" action="/" method="post">
+                    <form id="contact-form" method="post">
                         <div>
                             <label> <span>Name</span></label>
-                            @Html.TextBox("contact", null, new { placeholder = "Please enter your name", type = "text", tabindex = "1", required = "true", autofocus = "true" })
-                        </div> <div>
+                              @Html.TextBox("Name",null, new { placeholder = "Please enter your name", type = "text", tabindex = "1", required = "true", autofocus = "true" })
+                        </div>
+                        <div>
                             <label> <span>Email</span></label>
-                            @Html.TextBox("contact", null, new { placeholder = "Please enter your email", type = "email", tabindex = "2", required = "true" })
+                            @Html.TextBox("Email",null, new { placeholder = "Please enter your email", type = "email", tabindex = "2", required = "true" })
                         </div> <div>
                             <label> <span>Telephone</span></label>
-                            @Html.TextBox("contact", null, new { placeholder = "Please enter your number", type = "tel", tabindex = "3", required = "true" })
+                            @Html.TextBox("Telephone", null, new { name="Telephone", placeholder = "Please enter your number", type = "tel", tabindex = "3", required = "true" })
                         </div> <div>
                             <label> <span>Message</span></label>
-                            @Html.TextArea("contact", null, new { placeholder = "Include all the details you can", tabindex = "5", required = "true" })
+                            @Html.TextArea("Message", null, new { placeholder = "Include all the details you can", tabindex = "5", required = "true" })
                         </div>
                         <div>
                             <button name="submit" type="submit" id="contact-submit">Send Email</button>
                         </div>
                     </form>
-
                 </div>
                 <div class="col-md-6 col-address">
                     <div class="contact-address">
@@ -64,4 +64,3 @@
         </div>
     </section>
 </main>
-

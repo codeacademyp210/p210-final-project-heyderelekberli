@@ -265,8 +265,10 @@
     <edmx:ConceptualModels>
       <Schema Namespace="MoviesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="MoviesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SeansTables" EntityType="MoviesModel.SeansTable" />
           <EntitySet Name="Actors" EntityType="MoviesModel.Actor" />
           <EntitySet Name="Comments" EntityType="MoviesModel.Comment" />
+          <EntitySet Name="Contacts" EntityType="MoviesModel.Contact" />
           <EntitySet Name="Genres" EntityType="MoviesModel.Genre" />
           <EntitySet Name="Logins" EntityType="MoviesModel.Login" />
           <EntitySet Name="MovieActors" EntityType="MoviesModel.MovieActor" />
@@ -274,7 +276,6 @@
           <EntitySet Name="Movies" EntityType="MoviesModel.Movy" />
           <EntitySet Name="MovieSeans" EntityType="MoviesModel.MovieSean" />
           <EntitySet Name="Seans" EntityType="MoviesModel.Sean" />
-          <EntitySet Name="SeansTables" EntityType="MoviesModel.SeansTable" />
           <AssociationSet Name="FK_MovieActors_Actors" Association="MoviesModel.FK_MovieActors_Actors">
             <End Role="Actor" EntitySet="Actors" />
             <End Role="MovieActor" EntitySet="MovieActors" />
@@ -307,8 +308,18 @@
             <End Role="Sean" EntitySet="Seans" />
             <End Role="MovieSean" EntitySet="MovieSeans" />
           </AssociationSet>
-          <EntitySet Name="Contacts" EntityType="MoviesModel.Contact" />
-        </EntityContainer>
+          </EntityContainer>
+        <EntityType Name="SeansTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="Int32" />
+          <Property Name="Time" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Hall" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <NavigationProperty Name="Movy" Relationship="MoviesModel.FK_SeansTables_Movies" FromRole="SeansTable" ToRole="Movy" />
+        </EntityType>
         <EntityType Name="Actor">
           <Key>
             <PropertyRef Name="Id" />
@@ -335,6 +346,16 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="MovieID" Type="Int32" />
           <NavigationProperty Name="Movy" Relationship="MoviesModel.FK_Comments_Movies" FromRole="Comment" ToRole="Movy" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -417,17 +438,6 @@
           <Property Name="Phone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Boolean" />
           <NavigationProperty Name="MovieSeans" Relationship="MoviesModel.FK_MovieSeans_Seans" FromRole="Sean" ToRole="MovieSean" />
-        </EntityType>
-        <EntityType Name="SeansTable">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MovieID" Type="Int32" />
-          <Property Name="Time" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Hall" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Double" />
-          <NavigationProperty Name="Movy" Relationship="MoviesModel.FK_SeansTables_Movies" FromRole="SeansTable" ToRole="Movy" />
         </EntityType>
         <Association Name="FK_MovieActors_Actors">
           <End Type="MoviesModel.Actor" Role="Actor" Multiplicity="0..1" />
@@ -525,22 +535,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Contact">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Telephone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MoviesModelStoreContainer" CdmEntityContainer="MoviesEntities">
+          <EntitySetMapping Name="SeansTables">
+            <EntityTypeMapping TypeName="MoviesModel.SeansTable">
+              <MappingFragment StoreEntitySet="SeansTables">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Hall" ColumnName="Hall" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Actors">
             <EntityTypeMapping TypeName="MoviesModel.Actor">
               <MappingFragment StoreEntitySet="Actors">
@@ -563,6 +574,17 @@
                 <ScalarProperty Name="MovieID" ColumnName="MovieID" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Comment1" ColumnName="Comment" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="MoviesModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -639,28 +661,6 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SeansTables">
-            <EntityTypeMapping TypeName="MoviesModel.SeansTable">
-              <MappingFragment StoreEntitySet="SeansTables">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Hall" ColumnName="Hall" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="MovieID" ColumnName="MovieID" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Contacts">
-            <EntityTypeMapping TypeName="MoviesModel.Contact">
-              <MappingFragment StoreEntitySet="Contacts">
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
